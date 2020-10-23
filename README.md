@@ -13,6 +13,10 @@ To work on and build Project Brimstone you will need the Unity game engine versi
 
 Project Brimstone is being developed on Windows 10 and is currently the only supported platform.
 
+## Style
+
+The [Google C# style guide](https://google.github.io/styleguide/csharp-style.html) is followed when writing C# code for Project Brimstone.
+
 ## Running
 
 Project Brimstone can be run directly within the Unity editor for development and debug testing.
