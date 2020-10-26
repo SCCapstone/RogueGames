@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //DungeonGenerator script by Alex Johnson
+//test comment
 public class DungeonGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
