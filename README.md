@@ -44,6 +44,6 @@ TBA
 
 - Logan Corley: lcorley@email.sc.edu
 - Alex Johnson: jvj1@email.sc.edu
-- Lukas McClamrock: lukasm@email.sc.edu
+- Lukas F. McClamrock: lukasm@email.sc.edu
 - Mark H. McCoy: mhmccoy@email.sc.edu
 - James Thompson: jameset@email.sc.edu
