@@ -7,6 +7,7 @@ public class BasicMove: MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
 
+    [SerializeField]
     private float speed = 0.7f;
 
 
