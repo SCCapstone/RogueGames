@@ -72,32 +72,18 @@ public class Room
 public class DungeonGeneration : MonoBehaviour
 {
     [SerializeField]
-    private int numRooms;
-	private Room currentRoom;
+    private int numRooms = 7;
+
+	[SerializeField]
+	private bool genEnabled = true;
+
+	private Room startRoom;
 
     private Room[,] rooms;
+	private List<Room> createdRooms;
 
 	private static DungeonGeneration instance;
 
-	/* THis might not really come into play ; we will need something to track overall floor though
-	private void Awake()
-    {	//WHen another dungeon is made, load the room and destroy it. 
-		if (instance == null)
-		{
-			DontDestroyOnLoad(this.gameObject);
-			instance = this;
-			this.currentRoom = GenerateDungeon();
-			PrintGrid();
-		}
-		else
-		{
-			string roomPrefabName = instance.currentRoom.PrefabName();
-			GameObject roomObject = (GameObject)Instantiate(Resources.Load(roomPrefabName));
-			Destroy(this.gameObject);
-		}
-	}
-	
-	*/
 	/* Start is called before the first frame update
 	 * 
 	 * basic idea is going to be: 
@@ -111,12 +97,7 @@ public class DungeonGeneration : MonoBehaviour
 	
 	void Start()
 	{
-		string roomPrefabName = this.currentRoom.PrefabName();
-		GameObject roomObject = (GameObject)Instantiate(Resources.Load(roomPrefabName));
-	}
 
-	private Room GenerateDungeon()
-    {
 		/* Create grid
 		 * Put current room coords in queue
 		 * go through queue
@@ -124,10 +105,22 @@ public class DungeonGeneration : MonoBehaviour
 		 *		Generate possible neighbors, put in created rooms
 		 * GO through all generated rooms
 		 *		if two rooms are next to each other, connect.
+		 *		Load the subsequent room prefab and move it to location
 		 */
+		if (this.genEnabled)
+		{
+			this.startRoom = GenerateDungeon();
+			PrintGrid();
+		}
+
+	}
+
+	private Room GenerateDungeon()
+    {
 
 
-	int gridSize = 2 * numRooms + 1;
+
+		int gridSize = 2 * numRooms + 1;
 
         rooms = new Room[gridSize, gridSize];
 
@@ -135,7 +128,7 @@ public class DungeonGeneration : MonoBehaviour
 
 		Queue<Room> roomsToCreate = new Queue<Room>();
 		roomsToCreate.Enqueue(new Room(initialRoomCoordinate.x, initialRoomCoordinate.y));
-		List<Room> createdRooms = new List<Room>();
+		createdRooms = new List<Room>();
 		while (roomsToCreate.Count > 0 && createdRooms.Count < numRooms)
 		{
 			Room currentRoom = roomsToCreate.Dequeue();
@@ -155,7 +148,12 @@ public class DungeonGeneration : MonoBehaviour
 					room.Connect(neighbor);
 				}
 			}
+
+			string roomPrefabName = room.PrefabName();
+			GameObject roomObject = (GameObject)Instantiate(Resources.Load(roomPrefabName));
+			roomObject.transform.position = new Vector3(2.56f*(room.roomCoordinate.x-initialRoomCoordinate.x) , -2.56f * (room.roomCoordinate.y - initialRoomCoordinate.y), 0);
 		}
+
 
 		return this.rooms[initialRoomCoordinate.x, initialRoomCoordinate.y];
 	}
@@ -230,14 +228,10 @@ public class DungeonGeneration : MonoBehaviour
 		Debug.Log(grid);
 	}
 
-	public void MoveToRoom(Room room)
-	{
-		this.currentRoom = room;
-	}
 
-	public Room CurrentRoom()
+	public Room StartRoom()
 	{
-		return this.currentRoom;
+		return this.startRoom;
 	}
 
 }

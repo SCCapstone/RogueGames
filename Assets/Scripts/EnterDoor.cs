@@ -14,11 +14,15 @@ public class EnterDoor : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            GameObject dungeon = GameObject.FindGameObjectWithTag("Dungeon");
+            /*This script used for reference, Shouldn't be using it. 
+             * GameObject dungeon = GameObject.FindGameObjectWithTag("Dungeon");
             DungeonGeneration dungeonGeneration = dungeon.GetComponent<DungeonGeneration> ();
             Room room = dungeonGeneration.CurrentRoom();
             dungeonGeneration.MoveToRoom(room.Neighbor(this.direction));
             SceneManager.LoadScene("RoomGenerator");
+            */
+
+
         }
 
     }
