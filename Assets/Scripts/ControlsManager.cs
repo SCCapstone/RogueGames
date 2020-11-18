@@ -24,6 +24,7 @@ public class ControlsManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(keys["CompleteRoom"])) {
+            //A way to complete a room from outside. Might want to also make it delete all enemies?
             GameObject roomManager = GameObject.FindGameObjectWithTag("ActiveRoom");
             roomManager.tag = "CompleteRoom";
         }

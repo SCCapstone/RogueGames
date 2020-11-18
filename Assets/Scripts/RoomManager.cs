@@ -38,6 +38,14 @@ public class RoomManager : MonoBehaviour {
             myRoom.placeDoors();
             myRoomState = RoomState.active;
             gameObject.tag = "ActiveRoom";
+
+            //Here is where you would spawn enemies or something. Shouldn't be too bad
+            /*  EnemyManager myEnemyManager = new EnemenyManager();
+             *  myEnemyList = new List<GameObject>();
+             *  for (int i = Random.value *3 + 2; i <= 0; i--) {
+             *      myEnemyList.Add(myEnemyManager.newEnemy())
+             *  }
+             */ 
         }
     }
 
@@ -47,10 +55,14 @@ public class RoomManager : MonoBehaviour {
         if (myRoomState == RoomState.complete || gameObject.tag == "CompleteRoom") {
             this.CompleteRoom();
         }
-        // CHeck to see if room has been completed
-        /* If (all enemies dead) {
+        // Check to see if room has been completed
+        /* if (myEnemyList.Count == 0) {
          *      this.completeRoom();
          * }
+         * 
+         * 
+         * You can also handle room completion in your own script by following the same 
+         * directions as in ControlsManager
          */
 
     }
