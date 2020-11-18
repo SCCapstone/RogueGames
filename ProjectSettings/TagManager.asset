@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dungeon
+  - InactiveRoom
+  - ActiveRoom
+  - CompleteRoom
   layers:
   - Default
   - TransparentFX

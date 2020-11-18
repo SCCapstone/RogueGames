@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edac710201a52341aaea8c622e8b0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numRooms: 15
+  numRooms: 3
   genEnabled: 1
 --- !u!4 &296655184
 Transform:
@@ -301,6 +301,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2154708941314238070, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682745724313141373, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
+      propertyPath: roomComplete
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8861401391472104757, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
       propertyPath: m_Name
       value: Room_Start

@@ -1,19 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
-public class EnterDoor : MonoBehaviour
-{
+public class EnterDoor : MonoBehaviour {
 
     [SerializeField]
     string direction;
 
     // Update is called once per frame
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
+    void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "Player") {
             /*This script used for reference, Shouldn't be using it. 
              * GameObject dungeon = GameObject.FindGameObjectWithTag("Dungeon");
             DungeonGeneration dungeonGeneration = dungeon.GetComponent<DungeonGeneration> ();
