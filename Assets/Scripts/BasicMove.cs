@@ -7,7 +7,6 @@ public class BasicMove : MonoBehaviour {
     [SerializeField]
     private float speed = 0.7f;
 
-
     // Update is called once per frame
     void Update() {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed, 0.0f);

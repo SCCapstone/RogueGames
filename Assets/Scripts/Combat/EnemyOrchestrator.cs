@@ -7,11 +7,22 @@ public class EnemyOrchestrator : MonoBehaviour {
   private List<Enemy> _enemies;
   private List<Vector3> _spawns;
 
-  public void SpawnEnemy(string name) {
+  // Public API for enemy orchestration
+  public GameObject SpawnEnemy(string name, Vector3 pos) {
+    GameObject enemyGO = Instantiate(
+        Resources.Load<GameObject>($"Enemies/{name}"), pos, Quaternion.identity) as GameObject;
+    _enemies.Add(enemyGO.GetComponent<Enemy>());
+
+    return enemyGO;
+  }
+
+  public GameObject SpawnEnemy(string name) {
     Vector3 spawnPos = _spawns[Random.Range(0, _spawns.Count)];
-    GameObject impGO = Instantiate(
-        Resources.Load<GameObject>($"Enemies/{name}"), spawnPos, Quaternion.identity) as GameObject;
-    _enemies.Add(impGO.GetComponent<Enemy>());
+    return SpawnEnemy(name, spawnPos);
+  }
+
+  public int GetLiveEnemies() {
+    return _enemies.Count;
   }
 
   public void Awake() {
@@ -19,9 +30,14 @@ public class EnemyOrchestrator : MonoBehaviour {
     _enemies = new List<Enemy>();
     _spawns = new List<Vector3>();
 
-    Transform enemySpawns = GameObject.Find("enemy_spawns").transform;
-    foreach (Transform spawn in enemySpawns) {
-      _spawns.Add(spawn.position);
+    GameObject enemySpawnsGO = GameObject.Find("enemy_spawns") as GameObject;
+
+    if (enemySpawnsGO) {
+      Transform enemySpawns = enemySpawnsGO.transform;
+
+      foreach (Transform spawn in enemySpawns) {
+        _spawns.Add(spawn.position);
+      }
     }
   }
 

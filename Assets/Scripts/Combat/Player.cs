@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable {
+  public Animator animator;
+  public Rigidbody2D rb;
+
   // Health
   public float health = 8f;
   private float _damageColorEndTime;
@@ -10,8 +13,10 @@ public class Player : MonoBehaviour, IDamageable {
 
   // Movement
   public float baseSpeed = 5f;
+  private Vector3 _moveDir;
+  private float _speed;
 
-  // dodging
+  // Dodging
   public float dodgeMultiplier = 2.5f;
   public float dodgeCooldown = 1.5f;
   public float dodgeDuration = 0.3f;
@@ -49,6 +54,13 @@ public class Player : MonoBehaviour, IDamageable {
     _secondaryWeaponGO.SetActive(false);
   }
 
+  void FixedUpdate() {
+    // Move player and set animator parameters
+    Vector3 movement = _moveDir * _speed * Time.fixedDeltaTime;
+    rb.MovePosition(transform.position + movement);
+    //transform.position += moveDir * speed * Time.deltaTime;
+  }
+
   void Update() {
     // Handle damage
     if (Time.time < _damageColorEndTime)
@@ -60,39 +72,42 @@ public class Player : MonoBehaviour, IDamageable {
       transform.position = Vector3.zero;
       _spriteRenderer.color = Color.red;
     }
-    
-    // Compute movement direction vector
+
+    // Dodge and movement
     Vector2 moveInput;
+
     if (_useRawInput)
       moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); 
     else
       moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); 
 
-    Vector3 moveDir = new Vector3(moveInput.x, moveInput.y, 0f);
-    moveDir = Vector3.ClampMagnitude(moveDir, 1f);
+    _moveDir = new Vector3(moveInput.x, moveInput.y, 0f);
+    _moveDir = Vector3.ClampMagnitude(_moveDir, 1f);
 
-    // Handle dodging
-    if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > _dodgeRefreshTime && moveDir.sqrMagnitude > 0f) {
+    if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > _dodgeRefreshTime && _moveDir.sqrMagnitude > 0f) {
       _dodging = true;
-      _dodgeDir = moveDir.normalized;
+      _dodgeDir = _moveDir.normalized;
       _dodgeRefreshTime = Time.time + dodgeCooldown;
       _dodgeEndTime = Time.time + dodgeDuration;
     }
-
-    float speed = baseSpeed;
+    
+    _speed = baseSpeed;
 
     if (_dodging) {
-      moveDir = _dodgeDir;
+      _moveDir = _dodgeDir;
       float t = 1f - (_dodgeEndTime - Time.time) / dodgeDuration;
       
       if (t > 1f)
         _dodging = false;
       else
-        speed *= dodgeMultiplier * dodgeSpeedCurve.Evaluate(t);
+        _speed *= dodgeMultiplier * dodgeSpeedCurve.Evaluate(t);
     }
 
-    // Move player
-    transform.position += moveDir * speed * Time.deltaTime;
+    Debug.Log(_speed);
+
+    animator.SetFloat("Horizontal", moveInput.x);
+    animator.SetFloat("Vertical", moveInput.y);
+    animator.SetFloat("Magnitude", Vector3.ClampMagnitude(moveInput, 1f).magnitude);
 
     // Aiming and orientation
     Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -102,8 +117,8 @@ public class Player : MonoBehaviour, IDamageable {
     float orient = Mathf.Sign(playerToMouseDir.x);
     transform.localScale = new Vector3(orient, transform.localScale.y, transform.localScale.z);
 
-    _lineRenderer.SetPosition(0, transform.position + 0.5f * playerToMouseDir);
-    _lineRenderer.SetPosition(1, transform.position + 1.0f * playerToMouseDir);
+    _lineRenderer.SetPosition(0, transform.position + 0.1f * playerToMouseDir);
+    _lineRenderer.SetPosition(1, transform.position + 0.3f * playerToMouseDir);
 
     // Attacking
     if (Input.GetMouseButtonDown(0))

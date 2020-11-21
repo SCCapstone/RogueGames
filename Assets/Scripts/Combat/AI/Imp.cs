@@ -40,7 +40,7 @@ public class Imp : Enemy {
       _player.TakeDamage(damage);
   }
 
-  void Awake() {
+  void Start() {
     _playerGO = GameObject.FindGameObjectWithTag("Player");
     _player = _playerGO.GetComponent<Player>();
     SetRandomWalkTarget();

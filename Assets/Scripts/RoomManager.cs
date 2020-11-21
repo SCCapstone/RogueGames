@@ -12,12 +12,16 @@ public class RoomManager : MonoBehaviour {
     //NESW
     private Room myRoom;
 
+    private EnemyOrchestrator _orchestrator;
+
     // Start is called before the first frame update
     void Start() {
         if (myRoomState != RoomState.complete) {
             myRoomState = RoomState.inactive;
             gameObject.tag = "InactiveRoom";
         }
+
+        _orchestrator = GameObject.Find("enemy_orchestrator").GetComponent<EnemyOrchestrator>();
     }
 
     public void CompleteRoom() {
@@ -46,15 +50,24 @@ public class RoomManager : MonoBehaviour {
              *      myEnemyList.Add(myEnemyManager.newEnemy())
              *  }
              */ 
+            _orchestrator.SpawnEnemy("imp", transform.position);
         }
     }
 
 
     // Update is called once per frame
     void Update() {
-        if (myRoomState == RoomState.complete || gameObject.tag == "CompleteRoom") {
+        //if (myRoomState == RoomState.complete || gameObject.tag == "CompleteRoom") {
+        //    this.CompleteRoom();
+        //}
+
+        if (myRoomState == RoomState.active && _orchestrator.GetLiveEnemies() == 0) {
             this.CompleteRoom();
         }
+
+        //if (_orchestrator.GetLiveEnemies() == 0)
+        //  this.CompleteRoom();
+
         // Check to see if room has been completed
         /* if (myEnemyList.Count == 0) {
          *      this.completeRoom();

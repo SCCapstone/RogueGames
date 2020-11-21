@@ -15,6 +15,7 @@ public class Arrow : MonoBehaviour {
   }
 
   void OnTriggerEnter2D(Collider2D other) {
+    Debug.Log(other.name);
     IDamageable damageable = other.GetComponent<IDamageable>();
 
     if (damageable != null && other.gameObject != shooter)

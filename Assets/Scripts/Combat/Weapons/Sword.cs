@@ -37,10 +37,9 @@ public class Sword : Weapon {
     if (Time.time < _attackEndTime) {
       float t = 1f - (_attackEndTime - Time.time) / attackDuration;
       float orient = transform.parent.localScale.x;
-      float rotOrient = orient < 0f ? Mathf.PI : 0f;
       transform.eulerAngles = new Vector3(
           0f, 0f,
-          Mathf.Rad2Deg * (rotOrient + Mathf.Atan2(_attackDir.y, _attackDir.x))
+          Mathf.Rad2Deg * (Mathf.Atan2(_attackDir.y, _attackDir.x) - (Mathf.PI / 2f))
       );
       transform.position = transform.parent.position + (_attackDir * attackReach) * swingCurve.Evaluate(t);
     }
