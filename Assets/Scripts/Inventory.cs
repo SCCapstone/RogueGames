@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : IItemHolder {
+public class Inventory : ItemInterface {
 
     public event EventHandler OnItemListChanged;
 
@@ -21,9 +21,7 @@ public class Inventory : IItemHolder {
         }
 
         AddItem(new Item { itemType = Item.ItemType.Wood, amount = 10 });
-        AddItem(new Item { itemType = Item.ItemType.Stone, amount = 10 });
-        //AddItem(new Item { itemType = Item.ItemType.Sword_Wood });
-        //AddItem(new Item { itemType = Item.ItemType.Sword_Stone });
+        //to test an item just replace wood with something else and have it generate 
     }
 
     public InventorySlot GetEmptyInventorySlot() {
@@ -32,7 +30,6 @@ public class Inventory : IItemHolder {
                 return inventorySlot;
             }
         }
-        Debug.LogError("Cannot find an empty InventorySlot!");
         return null;
     }
 
@@ -42,7 +39,6 @@ public class Inventory : IItemHolder {
                 return inventorySlot;
             }
         }
-        Debug.LogError("Cannot find Item " + item + " in a InventorySlot!");
         return null;
     }
 
@@ -133,9 +129,7 @@ public class Inventory : IItemHolder {
     }
 
 
-    /*
-     * Represents a single Inventory Slot
-     * */
+    //single Inventory Slot
     public class InventorySlot {
 
         private int index;
