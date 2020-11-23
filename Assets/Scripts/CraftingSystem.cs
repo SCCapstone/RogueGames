@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraftingSystem : IItemHolder {
+public class CraftingSystem : ItemInterface{
 
     public const int GRID_SIZE = 2;
 
