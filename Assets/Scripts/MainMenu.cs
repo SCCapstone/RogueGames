@@ -10,6 +10,12 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Starting game!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void Options() {
+        Debug.Log("Options menu loaded!");
+        string scene = "OptionsMenu";
+        SceneManager.LoadScene(scene);
+    }
     
     // Function for the Quit button. Quits the game.
     public void QuitGame() {
