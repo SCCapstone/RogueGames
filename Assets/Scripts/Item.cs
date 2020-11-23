@@ -26,7 +26,7 @@ public class Item {
 
     public ItemType itemType;
     public int amount = 1;
-    private IItemHolder itemHolder;
+    private ItemInterface itemHolder;
 
 
     public void SetItemHolder(ItemInterface itemHolder) {
