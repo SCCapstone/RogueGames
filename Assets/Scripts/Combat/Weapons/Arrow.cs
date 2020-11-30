@@ -21,7 +21,7 @@ public class Arrow : MonoBehaviour {
     if (damageable != null && other.gameObject != shooter)
       damageable.TakeDamage(damage);
 
-    if (other.gameObject != shooter)
+    if (other.gameObject != shooter && other.name != "RoomManager")
       Destroy(gameObject);
   }
 }

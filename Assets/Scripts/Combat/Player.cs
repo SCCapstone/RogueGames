@@ -103,8 +103,6 @@ public class Player : MonoBehaviour, IDamageable {
         _speed *= dodgeMultiplier * dodgeSpeedCurve.Evaluate(t);
     }
 
-    Debug.Log(_speed);
-
     animator.SetFloat("Horizontal", moveInput.x);
     animator.SetFloat("Vertical", moveInput.y);
     animator.SetFloat("Magnitude", Vector3.ClampMagnitude(moveInput, 1f).magnitude);
