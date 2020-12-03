@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerInteract : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
     public GameObject currentInterObj = null;
     public interactionObject currentInterObjScript = null;
@@ -10,12 +10,13 @@ public class playerInteract : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Interact") && currentInterObj)
+        if (Input.GetKeyDown(KeyCode.Q) && currentInterObj)
         {
-            if (currentInterObjScript.invent)
-            {
-                inventory.AddItem(currentInterObj);
-            }
+            //if (currentInterObjScript.invent)
+            //{
+            //    inventory.AddItem(currentInterObj);
+            //}
+            Debug.Log("Sent Message");
             currentInterObj.SendMessage("DoInteraction");
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AlterBehavior : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class AlterBehavior : MonoBehaviour
     {
         Debug.Log("Pausing Game");
         pauseMenuUI.SetActive(true);
-        Time.timescale = 0f;
+        Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
@@ -33,7 +34,7 @@ public class AlterBehavior : MonoBehaviour
     {
         Debug.Log("Resuming Game");
         pauseMenuUI.SetActive(false);
-        Time.timescale = 1f;
+        Time.timeScale = 1f;
         GameIsPaused = false;
     }
 }
