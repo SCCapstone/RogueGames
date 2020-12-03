@@ -7,7 +7,7 @@ public class HotbarController : MonoBehaviour
     public int HotbarSlotSize => gameObject.transform.childCount;
     private List<ItemSlot> hotbarSlots = new List<ItemSlot>();
 
-    KeyCode[] hotbarKeys = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6 };
+    KeyCode[] hotbarKeys = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7 };
 
 
     private void Start()

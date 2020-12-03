@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             Item newItem = itemList[Random.Range(0, itemList.Count)];
+            
 
             Inventory.instance.AddItem(Instantiate(newItem));
         }
