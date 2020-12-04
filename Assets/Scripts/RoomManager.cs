@@ -50,7 +50,10 @@ public class RoomManager : MonoBehaviour {
              *      myEnemyList.Add(myEnemyManager.newEnemy())
              *  }
              */ 
-            _orchestrator.SpawnEnemy("imp", transform.position);
+
+            for (int i = 0; i < Random.Range(1, 4); i++) {
+              _orchestrator.SpawnEnemy("imp", transform.position);
+            }
         }
     }
 
