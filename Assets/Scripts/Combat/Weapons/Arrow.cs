@@ -8,6 +8,9 @@ public class Arrow : MonoBehaviour {
   public GameObject shooter;
 
   void Update() {
+    if (transform.position.sqrMagnitude > 140f)
+      Destroy(gameObject);
+
     transform.Translate(Vector3.right * speed * Time.deltaTime);
   }
 
