@@ -141,7 +141,7 @@ public class Player : MonoBehaviour, IDamageable {
     }
   }
 
-  void OnGUI() {
+/*  void OnGUI() {
     GUI.Box(new Rect(10, 10, 240, 200), "Dev Menu");
     _useRawInput = GUI.Toggle(new Rect(20, 40, 80, 20), _useRawInput, "Raw Input");
 
@@ -156,4 +156,5 @@ public class Player : MonoBehaviour, IDamageable {
       _spriteRenderer.color = Color.white;
     }
   }
+*/
 }

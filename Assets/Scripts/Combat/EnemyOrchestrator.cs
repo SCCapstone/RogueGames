@@ -56,7 +56,7 @@ public class EnemyOrchestrator : MonoBehaviour {
     }
   }
 
-  void OnGUI() {
+/*  void OnGUI() {
     if (GUI.Button(new Rect(20, 60, 100, 20), "Spawn Imp")) {
       SpawnEnemy("imp");
     }
@@ -65,4 +65,5 @@ public class EnemyOrchestrator : MonoBehaviour {
       SpawnEnemy("fallen");
     }
   }
+  */
 }
