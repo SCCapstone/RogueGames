@@ -26,8 +26,8 @@ public class Imp : Enemy {
     Vector3 moveDir = impToTarget.normalized;
 
     // Avoid player in defensive mode
-    if (impToPlayer.sqrMagnitude < 2f)
-      moveDir = -impToPlayer.normalized;
+    //if (impToPlayer.sqrMagnitude < 2f)
+    //  moveDir = -impToPlayer.normalized;
 
     transform.position += moveDir * speed * Time.deltaTime;
 
@@ -52,6 +52,7 @@ public class Imp : Enemy {
   }
 
   void SetRandomWalkTarget() {
-    _randomWalkTarget = new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 4f), 0f);
+    const float walkRange = 1f;
+    _randomWalkTarget = spawnPos + new Vector3(Random.Range(-walkRange, walkRange), Random.Range(-walkRange, walkRange), 0f);
   }
 }

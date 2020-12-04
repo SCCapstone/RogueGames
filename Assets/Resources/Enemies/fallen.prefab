@@ -98,12 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  arrow_prefab: {fileID: 1843042867742730703, guid: f2776808cea41c3459938887ec997f49, type: 3}
+  spawnPos: {x: 0, y: 0, z: 0}
+  arrowPrefab: {fileID: 5095310179508623428, guid: 4996fcef32d83ed40bcede1eb1ebf0f9, type: 3}
   speed: 3
-  melee_damage: 1
-  shoot_frequency: 2
-  defensive_distance: 6
-  aggressive_distance: 4
+  meleeDamage: 1
+  shootFrequency: 0.5
+  defensiveDistance: 1.2
+  aggressiveDistance: 0.4
 --- !u!50 &220663947906319071
 Rigidbody2D:
   serializedVersion: 4
@@ -135,19 +136,19 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9, y: 1.2}
+    oldSize: {x: 0.54285717, y: 0.34285715}
     newSize: {x: 1.9, y: 1.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71, y: 1.2}
+  m_Size: {x: 0.12, y: 0.34285715}
   m_EdgeRadius: 0
