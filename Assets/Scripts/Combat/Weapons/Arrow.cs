@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
   public float speed;
-  public float damage;
+  public int damage;
   public GameObject shooter;
 
   void Update() {

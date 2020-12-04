@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Imp : Enemy {
   public float speed;
-  public float damage;
-  
+  public int damage;
+ 
   private GameObject _playerGO;
   private Player _player;
 
   private Vector3 _randomWalkTarget;
 
-  public override void TakeDamage(float damage) {
+  public override void TakeDamage(int damage) {
     health -= damage;
   }
 

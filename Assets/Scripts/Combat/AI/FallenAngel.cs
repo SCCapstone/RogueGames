@@ -5,7 +5,7 @@ using UnityEngine;
 public class FallenAngel : Enemy {
   public GameObject arrowPrefab;
   public float speed;
-  public float meleeDamage;
+  public int meleeDamage;
   public float shootFrequency;
   public float defensiveDistance;
   public float aggressiveDistance;
@@ -16,7 +16,7 @@ public class FallenAngel : Enemy {
 
   private float _targetDistance;
 
-  public override void TakeDamage(float damage) {
+  public override void TakeDamage(int damage) {
     health -= damage;
   }
 

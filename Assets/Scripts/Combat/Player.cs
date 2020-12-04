@@ -7,9 +7,10 @@ public class Player : MonoBehaviour, IDamageable {
   public Rigidbody2D rb;
 
   // Health
-  public float health = 8f;
+  public int health = 5;
   private float _damageColorEndTime;
   private float _damageColorDuration = 0.1f;
+  private Health _healthUI;
 
   // Movement
   public float baseSpeed = 5f;
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour, IDamageable {
   private SpriteRenderer _spriteRenderer;
   private bool _useRawInput = false;
 
-  public void TakeDamage(float damage) {
+  public void TakeDamage(int damage) {
     if (_dodging)
       return;
     
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour, IDamageable {
   void Start() {
     _lineRenderer = GetComponent<LineRenderer>();
     _spriteRenderer = GetComponent<SpriteRenderer>();
+    _healthUI = GetComponent<Health>();
     _activeWeapon = _primaryWeaponGO.GetComponent<Weapon>();
     _inactiveWeapon = _secondaryWeaponGO.GetComponent<Weapon>();
     _secondaryWeaponGO.SetActive(false);
@@ -139,6 +141,8 @@ public class Player : MonoBehaviour, IDamageable {
         _secondaryWeaponGO.SetActive(true);
       }
     }
+
+    _healthUI.health = health;
   }
 
 /*  void OnGUI() {

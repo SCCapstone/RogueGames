@@ -308,6 +308,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb49f1814568a346b0d1f7a1d20f59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &416892292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6466089610225468574, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+  m_PrefabInstance: {fileID: 439200773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &439200773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -537,6 +548,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6474283249275063818, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474283249275063818, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6474283249497562626, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
@@ -846,7 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDegrade: 0.05
   durability: 1
-  damage: 2.5
+  damage: 2
   attackReach: 0.8
   attackDuration: 0.25
   swingCurve:
@@ -903,6 +918,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &755132257 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6466089609296274805, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+  m_PrefabInstance: {fileID: 439200773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1098759937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2352,6 +2378,17 @@ PrefabInstance:
       objectReference: {fileID: 3618283102952959977, guid: c15f40078a99598438bcc9bdef6e23bb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
+--- !u!114 &1150714333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6466089608714586400, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+  m_PrefabInstance: {fileID: 439200773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301974189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2432,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325629199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6466089610386455306, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+  m_PrefabInstance: {fileID: 439200773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364755559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,6 +2458,7 @@ GameObject:
   - component: {fileID: 1364755565}
   - component: {fileID: 1364755566}
   - component: {fileID: 1364755567}
+  - component: {fileID: 1364755564}
   m_Layer: 0
   m_Name: test_player
   m_TagString: Player
@@ -2522,6 +2571,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1364755564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364755559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c3291fbb30cddad9fc3e884f4bef05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  numberOfHearts: 5
+  hearts:
+  - {fileID: 1325629199}
+  - {fileID: 1150714333}
+  - {fileID: 416892292}
+  - {fileID: 1880666521}
+  - {fileID: 755132257}
+  fullHeart: {fileID: 1564688358316481467, guid: 605ef75576728c477b6063607e8651ef, type: 3}
+  emptyHeart: {fileID: 5726080727020278575, guid: 605ef75576728c477b6063607e8651ef, type: 3}
 --- !u!95 &1364755565
 Animator:
   serializedVersion: 3
@@ -2555,7 +2626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1364755565}
   rb: {fileID: 1364755563}
-  health: 8
+  health: 5
   baseSpeed: 1
   dodgeMultiplier: 2.5
   dodgeCooldown: 1.5
@@ -2693,6 +2764,17 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1880666521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6466089609260983959, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+  m_PrefabInstance: {fileID: 439200773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1970432875
 GameObject:
   m_ObjectHideFlags: 0
