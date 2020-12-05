@@ -696,7 +696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 407763830221843340, guid: c072e1e7a1295e4cb9553abf6bd931da, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 407763830221843340, guid: c072e1e7a1295e4cb9553abf6bd931da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1046,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861401391472104759, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8861401391472104759, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2498,7 +2498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1325629199 stripped
 MonoBehaviour:
