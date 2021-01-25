@@ -150,6 +150,30 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00002861
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 138.21619
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25.715794
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.7
+      objectReference: {fileID: 0}
     - target: {fileID: 80227634012692152, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_Name
       value: Pause Canvas
@@ -250,6 +274,30 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1068343656}
+    - target: {fileID: 80227634338944905, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_Text
+      value: Press [Esc] to Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634338944905, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634338944905, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634508892432, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 180.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634508892432, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00002861
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634508892432, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64
+      objectReference: {fileID: 0}
     - target: {fileID: 80227634508892433, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -258,9 +306,49 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 80227634575735031, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_Text
+      value: Press [0] to Quit Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634575735031, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634575735031, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634736142036, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_Text
+      value: Press [1] to Return to Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634736142036, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634736142036, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 80227635231262484, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227635260414608, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 144.61699
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227635260414608, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227635260414608, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -197
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227635260414608, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 21.673347
       objectReference: {fileID: 0}
     - target: {fileID: 80227635260414609, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

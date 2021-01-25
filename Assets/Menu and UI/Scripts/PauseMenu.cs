@@ -23,6 +23,27 @@ public class PauseMenu : MonoBehaviour
                         Pause();
                 }
          }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (GameIsPaused)
+            {
+                Debug.Log("Loading Menu via key [1]...");
+                GameIsPaused = false;
+                Time.timeScale = 1f;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            if (GameIsPaused)
+            {
+                Debug.Log("Quitting game via key [0]...");
+                GameIsPaused = false;
+                Application.Quit();
+            }
+        }
     }
 
     // Function for the action of Pausing.
