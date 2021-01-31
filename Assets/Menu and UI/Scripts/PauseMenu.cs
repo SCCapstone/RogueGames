@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject player;
+    public GameObject health;
     public GameObject inventory;
 
     void Update()
@@ -21,12 +23,35 @@ public class PauseMenu : MonoBehaviour
                         Pause();
                 }
          }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (GameIsPaused)
+            {
+                Debug.Log("Loading Menu via key [1]...");
+                GameIsPaused = false;
+                Time.timeScale = 1f;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            if (GameIsPaused)
+            {
+                Debug.Log("Quitting game via key [0]...");
+                GameIsPaused = false;
+                Application.Quit();
+            }
+        }
     }
 
     // Function for the action of Pausing.
     void Pause() {
         Debug.Log("Pausing game...");
         pauseMenuUI.SetActive(true);
+        player.GetComponent<Player>().enabled = false;
+        health.SetActive(false);
         inventory.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -36,6 +61,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume() {
         Debug.Log("Resuming game...");
         pauseMenuUI.SetActive(false);
+        player.GetComponent<Player>().enabled = true;
+        health.SetActive(true);
         inventory.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;   
