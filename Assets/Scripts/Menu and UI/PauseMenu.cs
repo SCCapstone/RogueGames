@@ -28,8 +28,8 @@ public class PauseMenu : MonoBehaviour
     void Pause() {
         Debug.Log("Pausing game...");
         pauseMenuUI.SetActive(true);
-        health.SetActive(false);
-        inventory.SetActive(false);
+        //health.SetActive(false);
+        //inventory.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -38,8 +38,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume() {
         Debug.Log("Resuming game...");
         pauseMenuUI.SetActive(false);
-        health.SetActive(true);
-        inventory.SetActive(true);
+        //health.SetActive(true);
+        //inventory.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;   
     }

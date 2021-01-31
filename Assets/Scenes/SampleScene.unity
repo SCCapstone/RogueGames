@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 80227634012692157, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9eec39287ac3a530977db315b101026, type: 3}
 --- !u!1 &296655181
@@ -560,6 +564,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6474283249497562626, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474283249596442600, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474283249596442600, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6474283249605771685, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
@@ -2548,7 +2560,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.04}
-  m_Size: {x: 0.12, y: 0.06}
+  m_Size: {x: 0.21, y: 0.27}
   m_Direction: 1
 --- !u!50 &1364755563
 Rigidbody2D:
@@ -2664,8 +2676,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _primaryWeaponGO: {fileID: 747514395}
-  _secondaryWeaponGO: {fileID: 1970432875}
+  primaryWeaponGO: {fileID: 747514395}
+  secondaryWeaponGO: {fileID: 1970432875}
 --- !u!120 &1364755567
 LineRenderer:
   m_ObjectHideFlags: 0
