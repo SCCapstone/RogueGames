@@ -22,8 +22,6 @@ public class PauseMenu : MonoBehaviour
                         Pause();
                 }
          }
-<<<<<<< Updated upstream:Assets/Menu and UI/Scripts/PauseMenu.cs
-=======
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -46,7 +44,6 @@ public class PauseMenu : MonoBehaviour
                 Application.Quit();
             }
         }
->>>>>>> Stashed changes:Assets/Scripts/Menu and UI/PauseMenu.cs
     }
 
     // Function for the action of Pausing.
