@@ -11,6 +11,9 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     Resolution[] resolutions;
     public Dropdown resolutionDropdown;
+    public Slider masterVol;
+    public Slider bgmVol;
+    public Slider sfxVol;
 
     void Start () {
         resolutions = Screen.resolutions;
@@ -32,6 +35,11 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        masterVol.value = PlayerPrefs.GetFloat("MasterVol", 0.75f);
+        bgmVol.value = PlayerPrefs.GetFloat("BGMVol", 0.75f);
+        sfxVol.value = PlayerPrefs.GetFloat("SFXVol", 0.75f);
+
     }
 
     public void SetResolution (int resolutionIndex) {
@@ -40,16 +48,33 @@ public class OptionsMenu : MonoBehaviour
         Debug.Log("Resolution set to " + resolution.width + " x " + resolution.height + ".");
     }
 
-    public void SetVolume (float volume) {
+    public void SetMasterVolume (float volume) {
 
-        audioMixer.SetFloat("volume", volume);
-        Debug.Log("Volume = " + volume);
+        audioMixer.SetFloat("volume_master", volume);
+        PlayerPrefs.SetFloat("MasterVol",volume);
+        Debug.Log("Master Volume = " + volume + ".");
+
+    }
+
+    public void SetBGMVolume (float volume) {
+
+        audioMixer.SetFloat("volume_bgm", volume);
+        PlayerPrefs.SetFloat("BGMVol",volume);
+        Debug.Log("BGM Volume = " + volume + ".");
+
+    }
+
+    public void SetSFXVolume (float volume) {
+
+        audioMixer.SetFloat("volume_sfx", volume);
+        PlayerPrefs.SetFloat("SFXVol",volume);
+        Debug.Log("SFX Volume = " + volume + ".");
 
     }
 
     public void SetFullScreen (bool isFullscreen) {
         Screen.fullScreen = isFullscreen;
-        Debug.Log("Fullscreen = " + isFullscreen);
+        Debug.Log("Fullscreen = " + isFullscreen + ".");
     }
 
     public void MainMenu() {
