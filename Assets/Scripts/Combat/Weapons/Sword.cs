@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Sword : Weapon {
-  public float damage;
+  public int damage;
   public float attackReach;
   public float attackDuration;
   public AnimationCurve swingCurve;

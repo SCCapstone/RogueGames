@@ -7,9 +7,10 @@ public class Player : MonoBehaviour, IDamageable {
   public Rigidbody2D rb;
 
   // Health
-  public float health = 8f;
+  public int health = 5;
   private float _damageColorEndTime;
   private float _damageColorDuration = 0.1f;
+  private Health _healthUI;
 
   // Movement
   public float baseSpeed = 5f;
@@ -27,8 +28,8 @@ public class Player : MonoBehaviour, IDamageable {
   private bool _dodging;
 
   // Weapons
-  public GameObject _primaryWeaponGO;
-  public GameObject _secondaryWeaponGO;
+  public GameObject primaryWeaponGO;
+  public GameObject secondaryWeaponGO;
   private bool _primaryActive = true;
   private Weapon _activeWeapon;
   private Weapon _inactiveWeapon;
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour, IDamageable {
   private SpriteRenderer _spriteRenderer;
   private bool _useRawInput = false;
 
-  public void TakeDamage(float damage) {
+  public void TakeDamage(int damage) {
     if (_dodging)
       return;
     
@@ -49,9 +50,55 @@ public class Player : MonoBehaviour, IDamageable {
   void Start() {
     _lineRenderer = GetComponent<LineRenderer>();
     _spriteRenderer = GetComponent<SpriteRenderer>();
-    _activeWeapon = _primaryWeaponGO.GetComponent<Weapon>();
-    _inactiveWeapon = _secondaryWeaponGO.GetComponent<Weapon>();
-    _secondaryWeaponGO.SetActive(false);
+    _healthUI = GetComponent<Health>();
+    _activeWeapon = primaryWeaponGO.GetComponent<Weapon>();
+    _inactiveWeapon = secondaryWeaponGO.GetComponent<Weapon>();
+    secondaryWeaponGO.SetActive(false);
+  }
+
+  public void SwitchWeapons() {
+    _primaryActive = !_primaryActive;
+
+    Weapon tmp = _activeWeapon;
+    _activeWeapon = _inactiveWeapon;
+    _inactiveWeapon = tmp;
+
+    if (_primaryActive) {
+      primaryWeaponGO.SetActive(true);
+      secondaryWeaponGO.SetActive(false);
+    }
+    else {
+      primaryWeaponGO.SetActive(false);
+      secondaryWeaponGO.SetActive(true);
+    }
+  }
+
+  public void Move(Vector2 moveInput, bool dodge = false) {
+    _moveDir = new Vector3(moveInput.x, moveInput.y, 0f);
+    _moveDir = Vector3.ClampMagnitude(_moveDir, 1f);
+
+    if (dodge && Time.time > _dodgeRefreshTime && _moveDir.sqrMagnitude > 0f) {
+      _dodging = true;
+      _dodgeDir = _moveDir.normalized;
+      _dodgeRefreshTime = Time.time + dodgeCooldown;
+      _dodgeEndTime = Time.time + dodgeDuration;
+    }
+    
+    _speed = baseSpeed;
+
+    if (_dodging) {
+      _moveDir = _dodgeDir;
+      float t = 1f - (_dodgeEndTime - Time.time) / dodgeDuration;
+      
+      if (t > 1f)
+        _dodging = false;
+      else
+        _speed *= dodgeMultiplier * dodgeSpeedCurve.Evaluate(t);
+    }
+
+    animator.SetFloat("Horizontal", moveInput.x);
+    animator.SetFloat("Vertical", moveInput.y);
+    animator.SetFloat("Magnitude", Vector3.ClampMagnitude(moveInput, 1f).magnitude);
   }
 
   void FixedUpdate() {
@@ -81,31 +128,7 @@ public class Player : MonoBehaviour, IDamageable {
     else
       moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); 
 
-    _moveDir = new Vector3(moveInput.x, moveInput.y, 0f);
-    _moveDir = Vector3.ClampMagnitude(_moveDir, 1f);
-
-    if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > _dodgeRefreshTime && _moveDir.sqrMagnitude > 0f) {
-      _dodging = true;
-      _dodgeDir = _moveDir.normalized;
-      _dodgeRefreshTime = Time.time + dodgeCooldown;
-      _dodgeEndTime = Time.time + dodgeDuration;
-    }
-    
-    _speed = baseSpeed;
-
-    if (_dodging) {
-      _moveDir = _dodgeDir;
-      float t = 1f - (_dodgeEndTime - Time.time) / dodgeDuration;
-      
-      if (t > 1f)
-        _dodging = false;
-      else
-        _speed *= dodgeMultiplier * dodgeSpeedCurve.Evaluate(t);
-    }
-
-    animator.SetFloat("Horizontal", moveInput.x);
-    animator.SetFloat("Vertical", moveInput.y);
-    animator.SetFloat("Magnitude", Vector3.ClampMagnitude(moveInput, 1f).magnitude);
+    Move(moveInput, Input.GetKeyDown(KeyCode.LeftShift));
 
     // Aiming and orientation
     Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -124,24 +147,13 @@ public class Player : MonoBehaviour, IDamageable {
 
     // Switch weapons
     if (Input.GetMouseButtonDown(1)) {
-      _primaryActive = !_primaryActive;
-
-      Weapon tmp = _activeWeapon;
-      _activeWeapon = _inactiveWeapon;
-      _inactiveWeapon = tmp;
-
-      if (_primaryActive) {
-        _primaryWeaponGO.SetActive(true);
-        _secondaryWeaponGO.SetActive(false);
-      }
-      else {
-        _primaryWeaponGO.SetActive(false);
-        _secondaryWeaponGO.SetActive(true);
-      }
+      SwitchWeapons();
     }
+
+    _healthUI.health = health;
   }
 
-  void OnGUI() {
+/*  void OnGUI() {
     GUI.Box(new Rect(10, 10, 240, 200), "Dev Menu");
     _useRawInput = GUI.Toggle(new Rect(20, 40, 80, 20), _useRawInput, "Raw Input");
 
@@ -156,4 +168,5 @@ public class Player : MonoBehaviour, IDamageable {
       _spriteRenderer.color = Color.white;
     }
   }
+*/
 }

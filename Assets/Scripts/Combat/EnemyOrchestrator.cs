@@ -11,7 +11,9 @@ public class EnemyOrchestrator : MonoBehaviour {
   public GameObject SpawnEnemy(string name, Vector3 pos) {
     GameObject enemyGO = Instantiate(
         Resources.Load<GameObject>($"Enemies/{name}"), pos, Quaternion.identity) as GameObject;
-    _enemies.Add(enemyGO.GetComponent<Enemy>());
+    Enemy enemy = enemyGO.GetComponent<Enemy>();
+    enemy.spawnPos = pos;
+    _enemies.Add(enemy);
 
     return enemyGO;
   }
@@ -56,7 +58,7 @@ public class EnemyOrchestrator : MonoBehaviour {
     }
   }
 
-  void OnGUI() {
+/*  void OnGUI() {
     if (GUI.Button(new Rect(20, 60, 100, 20), "Spawn Imp")) {
       SpawnEnemy("imp");
     }
@@ -65,4 +67,5 @@ public class EnemyOrchestrator : MonoBehaviour {
       SpawnEnemy("fallen");
     }
   }
+  */
 }
