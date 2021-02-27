@@ -164,7 +164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 201.94
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227633527735779, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 80227634012692152, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_Name
@@ -280,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80227634338944905, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_Text
-      value: Press [ESC] - Resume
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 80227634368549933, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_LocalScale.x
@@ -312,7 +316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80227634508892432, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 232.2
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227634508892432, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 80227634508892433, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -324,11 +332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80227634575735031, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_Text
-      value: Press [0] - Quit
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 80227634736142036, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_Text
-      value: Press [1] - Return to Menu
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 80227635231262484, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_IsActive
@@ -352,7 +360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80227635260414608, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 145.5
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 80227635260414608, guid: d9eec39287ac3a530977db315b101026, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 80227635260414609, guid: d9eec39287ac3a530977db315b101026, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
