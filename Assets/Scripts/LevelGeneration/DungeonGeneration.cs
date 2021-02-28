@@ -63,11 +63,25 @@ public class Room {
         return this.neighbors[direction];
     }
 
-    public void Load() {
+    public void Load(float obstacleChance) {
         GameObject roomObject = GameObject.Instantiate(Resources.Load(this.PrefabName())) as GameObject;
         roomObject.transform.position = new Vector3(roomSize.x*(this.roomCoordinate.x-this.initialRoomCoordinate.x), -roomSize.y * (this.roomCoordinate.y - this.initialRoomCoordinate.y), 0);
         childRoomManager = roomObject.transform.GetChild(1).gameObject.GetComponentInChildren<RoomManager>();
         childRoomManager.SetRoom(this);
+
+        float obsRandom = Random.value;
+        if (obsRandom < obstacleChance) {
+            int numObstacles = 2;
+            GameObject obstacle;
+            if (obsRandom < obstacleChance/numObstacles) { // in first fraction
+                obstacle = GameObject.Instantiate(Resources.Load("Obstacles/Obstacle_Pit")) as GameObject;
+                //can add 'else if obsRandom < obstacleChance*2/numObstacles for more than two, and such. 
+            } else { // in last fraction
+                obstacle = GameObject.Instantiate(Resources.Load("Obstacles/Obstacle_Pillars")) as GameObject;
+            }
+            obstacle.transform.position = new Vector3(roomSize.x*(this.roomCoordinate.x-this.initialRoomCoordinate.x), -roomSize.y * (this.roomCoordinate.y - this.initialRoomCoordinate.y), 0);
+
+        }
     }
     public void completeRoom() {
         childRoomManager.CompleteRoom();
@@ -114,6 +128,9 @@ public class DungeonGeneration : MonoBehaviour {
 
     [SerializeField]
     private bool genEnabled = true;
+
+    [SerializeField]
+    private float obstacleChance = 0.4f;
 
     private Room startRoom;
 
@@ -181,7 +198,7 @@ public class DungeonGeneration : MonoBehaviour {
                 }
             }
             room.initialRoomCoordinate = initialRoomCoordinate;
-            room.Load();
+            room.Load(obstacleChance);
             
         }
 

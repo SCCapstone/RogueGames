@@ -43,7 +43,7 @@ public class EnemyOrchestrator : MonoBehaviour {
     }
   }
 
-  void Update() {
+  void FixedUpdate() {
     // Filter dead enemies
     _enemies = _enemies.FindAll(e => e != null);
 
