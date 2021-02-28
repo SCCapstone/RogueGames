@@ -251,7 +251,9 @@ public class DungeonGeneration : MonoBehaviour {
         for (int rowIndex = 0; rowIndex < this.rooms.GetLength(1); rowIndex++) {
             string row = "";
             for (int columnIndex = 0; columnIndex < this.rooms.GetLength(0); columnIndex++) {
-                if (this.rooms[columnIndex, rowIndex] == null) {
+                if (columnIndex == numRooms+1 && rowIndex == numRooms+1) {
+                    row += "S";
+                } else if (this.rooms[columnIndex, rowIndex] == null) {
                     row += "X";
                 } else {
                     row += "R";

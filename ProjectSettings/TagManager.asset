@@ -8,6 +8,7 @@ TagManager:
   - InactiveRoom
   - ActiveRoom
   - CompleteRoom
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Flying
+  - Pits
   - 
   - 
   - 
