@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5088800229678002633}
   - component: {fileID: 220663947906319071}
   - component: {fileID: -7741915249705051219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fallen
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,9 @@ MonoBehaviour:
   health: 2
   spawnPos: {x: 0, y: 0, z: 0}
   arrowPrefab: {fileID: 5095310179508623428, guid: 4996fcef32d83ed40bcede1eb1ebf0f9, type: 3}
-  speed: 3
+  speed: 2
   meleeDamage: 1
-  shootFrequency: 0.5
+  shootFrequency: 0.8
   defensiveDistance: 1.2
   aggressiveDistance: 0.4
 --- !u!50 &220663947906319071
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5088800229678002632}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &-7741915249705051219
 BoxCollider2D:
   m_ObjectHideFlags: 0
