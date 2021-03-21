@@ -12,7 +12,6 @@ public class Imp : Enemy {
   private Player _player;
 
   private Rigidbody2D _rigidbody;
-  private Vector3 _randomWalkTarget;
   private bool _retreat = false;
 
   public override void TakeDamage(int damage) {
@@ -38,20 +37,52 @@ public class Imp : Enemy {
   }
   
   public override void ActDefensive() {
-    Vector3 impToTarget = _randomWalkTarget - transform.position;
-    Vector3 impToPlayer = _playerGO.transform.position - transform.position;
-    Vector3 moveDir = impToTarget.normalized;
+    List<Vector3> impPositions = GetImpPositions();
+    Vector3 impCenter = ComputeCenterOfMass(impPositions);
+    Vector3 repulsion = ComputerRepulsion(impPositions, 0.3f);
 
-    // Avoid player in defensive mode
-    //if (impToPlayer.sqrMagnitude < 2f)
-    //  moveDir = -impToPlayer.normalized;
+    Vector3 impToTarget = impCenter - transform.position;
+    Vector3 moveDir = impToTarget.normalized + (repulsion.normalized * 1.1f);
 
-    //transform.position += moveDir * speed * Time.deltaTime;
     Vector3 movement = moveDir * speed * Time.deltaTime;
     _rigidbody.MovePosition(transform.position + movement);
+  }
 
-    if (impToTarget.sqrMagnitude < 0.1f)
-      SetRandomWalkTarget();
+  List<Vector3> GetImpPositions() {
+    Imp[] imps = Object.FindObjectsOfType<Imp>();
+    List<Vector3> positions = new List<Vector3>();
+
+    for (int i = 0; i < imps.Length; i++) {
+      if (imps[i] != this)
+        positions.Add(imps[i].transform.position);
+    }
+
+    return positions;
+  }
+
+  Vector3 ComputeCenterOfMass(List<Vector3> positions) {
+    Vector3 center = Vector3.zero;
+
+    foreach (Vector3 pos in positions)
+      center += pos;
+
+    center /= positions.Count;
+
+    return center;
+  }
+
+  Vector3 ComputerRepulsion(List<Vector3> positions, float repelDist) {
+    Vector3 repulsion = Vector3.zero;
+    float repelDistSqr = repelDist * repelDist;
+
+    foreach (Vector3 pos in positions) {
+      Vector3 impToOther = pos - transform.position;
+
+      if (impToOther.sqrMagnitude < repelDistSqr)
+        repulsion -= impToOther;
+    }
+
+    return repulsion;
   }
 
   void OnCollisionEnter2D(Collision2D col) {
@@ -65,16 +96,10 @@ public class Imp : Enemy {
     _playerGO = GameObject.FindGameObjectWithTag("Player");
     _player = _playerGO.GetComponent<Player>();
     _rigidbody = GetComponent<Rigidbody2D>();
-    SetRandomWalkTarget();
   }
 
   void Update() {
     if (health <= 0f)
       Destroy(gameObject);
-  }
-
-  void SetRandomWalkTarget() {
-    const float walkRange = 1f;
-    _randomWalkTarget = spawnPos + new Vector3(Random.Range(-walkRange, walkRange), Random.Range(-walkRange, walkRange), 0f);
   }
 }

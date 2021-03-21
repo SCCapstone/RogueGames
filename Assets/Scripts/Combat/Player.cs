@@ -135,7 +135,7 @@ public class Player : MonoBehaviour, IDamageable {
     mouseWorldPos.z = 0f;
 
     Vector3 playerToMouseDir = (mouseWorldPos - transform.position).normalized;
-    float orient = Mathf.Sign(playerToMouseDir.x);
+    float orient = -Mathf.Sign(playerToMouseDir.x);
     transform.localScale = new Vector3(orient, transform.localScale.y, transform.localScale.z);
 
     _lineRenderer.SetPosition(0, transform.position + 0.1f * playerToMouseDir);
