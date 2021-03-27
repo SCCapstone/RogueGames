@@ -2763,7 +2763,7 @@ GameObject:
   - component: {fileID: 1910047393200115861}
   - component: {fileID: 1561848227148722586}
   - component: {fileID: 1161857133388683846}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoomManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

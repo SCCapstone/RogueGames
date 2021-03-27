@@ -19,6 +19,7 @@ public class ControlsManager : MonoBehaviour {
         keys.Add("ZoomOut", KeyCode.Minus);
         keys.Add("ZoomIn", KeyCode.Equals);
         keys.Add("CompleteRoom", KeyCode.C);
+        keys.Add("GodModeToggle", KeyCode.G);
     }
 
     // Update is called once per frame
@@ -37,6 +38,21 @@ public class ControlsManager : MonoBehaviour {
         }
         if (Input.GetKey(keys["ZoomIn"])) {
             Camera.main.orthographicSize = Mathf.Max(1.0f, Camera.main.orthographicSize - 0.01f);
+        }
+        if (Input.GetKeyDown(keys["GodModeToggle"])) {
+            // makes the player invincible and allows them to walk through walls
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            Player playerScript = playerObj.GetComponent<Player>();
+
+            if (playerObj.layer == LayerMask.NameToLayer("Default")) {
+                playerObj.layer = LayerMask.NameToLayer("GodMode");
+                playerScript.baseSpeed = 3f;
+            } else {
+                playerObj.layer = LayerMask.NameToLayer("Default");
+                playerScript.baseSpeed = 1f;
+            }
+
+            //
         }
     }
 }
