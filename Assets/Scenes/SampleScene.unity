@@ -1929,6 +1929,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2706669015592457069, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
+      propertyPath: myRoomState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3682745724313141373, guid: e4921b2e79d87f64b9669d31ba45f188, type: 3}
       propertyPath: roomComplete
       value: 1
