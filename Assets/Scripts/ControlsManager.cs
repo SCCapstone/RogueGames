@@ -20,6 +20,7 @@ public class ControlsManager : MonoBehaviour {
         keys.Add("ZoomIn", KeyCode.Equals);
         keys.Add("CompleteRoom", KeyCode.C);
         keys.Add("GodModeToggle", KeyCode.G);
+        keys.Add("GetCompletionStatus", KeyCode.Slash);
     }
 
     // Update is called once per frame
@@ -53,6 +54,16 @@ public class ControlsManager : MonoBehaviour {
             }
 
             //
+        }
+        if (Input.GetKeyDown(keys["GetCompletionStatus"])) {
+            // Prints to the Debug log wether all rooms have been completed
+            // More of an example of how to use it than a debug feature
+
+            GameObject dungeonObj = GameObject.FindGameObjectWithTag("Dungeon");
+            DungeonGeneration dungeonScript = dungeonObj.GetComponent<DungeonGeneration>();
+
+            Debug.Log("All Rooms Completed: " + dungeonScript.AllRoomsComplete());
+
         }
     }
 }

@@ -87,6 +87,10 @@ public class Room {
         childRoomManager.CompleteRoom();
     }
 
+    public RoomState GetRoomState() {
+        return childRoomManager.myRoomState;
+    }
+
     public void placeDoors() {
         string nesw = this.PrefabName().Substring(11);
         if (nesw.Contains("N")) {
@@ -267,6 +271,16 @@ public class DungeonGeneration : MonoBehaviour {
 
     public Room StartRoom() {
         return this.startRoom;
+    }
+
+    public bool AllRoomsComplete() {
+        // iterates through each room to make sure they are all completed. 
+        foreach (Room room in createdRooms) {
+            if (room.GetRoomState() != RoomState.complete) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
