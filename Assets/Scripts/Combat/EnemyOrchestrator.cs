@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyOrchestrator : MonoBehaviour {
+  public const float targetDifficulty = 0.5f;
+  private float _currentDifficulty = 0.0f;
+
   private Player _player;
   private List<Enemy> _enemies;
   private List<Vector3> _spawns;
@@ -43,29 +46,65 @@ public class EnemyOrchestrator : MonoBehaviour {
     }
   }
 
+  int GetAttackerCount() {
+    return _enemies.FindAll(e => e.attacking).Count;
+  }
+
+  int GetDefenderCount() {
+    return _enemies.FindAll(e => !e.attacking).Count;
+  }
+
+  void PromoteEnemy() {
+    if (GetDefenderCount() == 0)
+      return;
+
+    int index;
+
+    do {
+      index = Random.Range(0, _enemies.Count);
+    } while (_enemies[index].attacking);
+
+    _enemies[index].attacking = true;
+    _currentDifficulty += _enemies[index].difficulty;
+  }
+
+  void DemoteEnemy() {
+    if (GetAttackerCount() == 0)
+      return;
+
+    int index;
+
+    do {
+      index = Random.Range(0, _enemies.Count);
+    } while (!_enemies[index].attacking);
+
+    _enemies[index].attacking = false;
+    _currentDifficulty -= _enemies[index].difficulty;
+  }
+
   void FixedUpdate() {
     // Filter dead enemies
     _enemies = _enemies.FindAll(e => e != null);
+    Debug.Log(_currentDifficulty);
 
-    // First enemy is aggressive, others are defensive
-    for (int i = 0; i < _enemies.Count; i++) {
-      Enemy enemy = _enemies[i];
+    while (_currentDifficulty < targetDifficulty && GetDefenderCount() > 0) {
+      PromoteEnemy();
+    }
 
-      if (i == 0 && _player.health > 0f)
+    foreach (Enemy enemy in _enemies) {
+      if (enemy.health <= 0) {
+        if (enemy.attacking)
+          _currentDifficulty -= enemy.difficulty;
+
+        Destroy(enemy.gameObject);
+        continue;
+      }
+
+      if (enemy.attacking)
         enemy.ActAggressive();
       else
         enemy.ActDefensive();
     }
   }
 
-/*  void OnGUI() {
-    if (GUI.Button(new Rect(20, 60, 100, 20), "Spawn Imp")) {
-      SpawnEnemy("imp");
-    }
-
-    if (GUI.Button(new Rect(20, 80, 100, 20), "Spawn Fallen")) {
-      SpawnEnemy("fallen");
-    }
-  }
-  */
 }

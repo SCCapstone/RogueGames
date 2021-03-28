@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IDamageable {
+  public float difficulty;
+  public bool attacking;
   public int health;
   public Vector3 spawnPos;
   

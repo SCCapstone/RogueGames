@@ -49,9 +49,6 @@ public class FallenAngel : Enemy {
   }
 
   void Update() {
-    if (health <= 0f)
-      Destroy(gameObject);
-
     Vector3 fallenToPlayer = _playerGO.transform.position - transform.position;
     float fallenToPlayer_dist = fallenToPlayer.magnitude;
     Vector3 moveDir = fallenToPlayer.normalized;

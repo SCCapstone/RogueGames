@@ -20,7 +20,6 @@ public class Imp : Enemy {
 
   public override void ActAggressive() {
     Vector3 impToPlayer = _playerGO.transform.position - transform.position;
-    //transform.position += impToPlayer.normalized * speed * Time.deltaTime;
     Vector3 movement = impToPlayer.normalized * speed * Time.fixedDeltaTime;
 
     if (impToPlayer.magnitude > attackDistance)
@@ -99,7 +98,5 @@ public class Imp : Enemy {
   }
 
   void Update() {
-    if (health <= 0f)
-      Destroy(gameObject);
   }
 }

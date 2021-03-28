@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e58b7f9db2ec64ba32f460136c0fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 0.3
+  attacking: 0
   health: 4
   spawnPos: {x: 0, y: 0, z: 0}
   speed: 0.5

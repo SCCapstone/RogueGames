@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e985e0ef905694c880a40897beca36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 0.3
   health: 2
   spawnPos: {x: 0, y: 0, z: 0}
   arrowPrefab: {fileID: 5095310179508623428, guid: 4996fcef32d83ed40bcede1eb1ebf0f9, type: 3}
