@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyOrchestrator : MonoBehaviour {
-  public const float targetDifficulty = 0.5f;
+  private const float _baseDifficulty = 0.5f;
+  private float _targetDifficulty = _baseDifficulty;
   private float _currentDifficulty = 0.0f;
+
+  private int _healthDeltaThreshold = 2;
+  private int _lastHealth;
+  private float _healthCheckTimer = 0.0f;
+  private float _healthCheckInterval = 1.5f;
+
+  private float _difficultyAdjustTimer = 0.0f;
+  private float _difficultyAdjustInterval = 4.0f;
 
   private Player _player;
   private List<Enemy> _enemies;
@@ -32,6 +41,7 @@ public class EnemyOrchestrator : MonoBehaviour {
 
   public void Awake() {
     _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    _lastHealth = _player.health;
     _enemies = new List<Enemy>();
     _spawns = new List<Vector3>();
 
@@ -46,48 +56,85 @@ public class EnemyOrchestrator : MonoBehaviour {
     }
   }
 
-  int GetAttackerCount() {
+  public int GetAttackerCount() {
     return _enemies.FindAll(e => e.attacking).Count;
   }
 
-  int GetDefenderCount() {
+  public int GetDefenderCount() {
     return _enemies.FindAll(e => !e.attacking).Count;
   }
 
+  public float AdjustDifficulty(float delta) {
+    _targetDifficulty += delta;
+    if (_targetDifficulty < 0.0f) _targetDifficulty = 0.0f;
+    return _targetDifficulty;
+  }
+
+  List<Enemy> GetPotentialAttackers() {
+    return _enemies.FindAll(e => (_currentDifficulty + e.difficulty <= _targetDifficulty) && !e.attacking);
+  }
+
+  List<Enemy> GetPotentialDefenders() {
+    return _enemies.FindAll(e => e.attacking);
+  }
+
   void PromoteEnemy() {
-    if (GetDefenderCount() == 0)
+    List<Enemy> potentialAttackers = GetPotentialAttackers();
+
+    if (potentialAttackers.Count == 0)
       return;
 
-    int index;
+    int index = Random.Range(0, potentialAttackers.Count);
 
-    do {
-      index = Random.Range(0, _enemies.Count);
-    } while (_enemies[index].attacking);
-
-    _enemies[index].attacking = true;
-    _currentDifficulty += _enemies[index].difficulty;
+    potentialAttackers[index].attacking = true;
+    _currentDifficulty += potentialAttackers[index].difficulty;
   }
 
   void DemoteEnemy() {
-    if (GetAttackerCount() == 0)
+    List<Enemy> potentialDefenders = GetPotentialDefenders();
+
+    if (potentialDefenders.Count == 0)
       return;
 
-    int index;
+    int index = Random.Range(0, potentialDefenders.Count);
 
-    do {
-      index = Random.Range(0, _enemies.Count);
-    } while (!_enemies[index].attacking);
-
-    _enemies[index].attacking = false;
-    _currentDifficulty -= _enemies[index].difficulty;
+    potentialDefenders[index].attacking = false;
+    _currentDifficulty -= potentialDefenders[index].difficulty;
   }
 
   void FixedUpdate() {
     // Filter dead enemies
     _enemies = _enemies.FindAll(e => e != null);
-    Debug.Log(_currentDifficulty);
+    if (_enemies.Count == 0) {
+      _targetDifficulty = _baseDifficulty;
+      _currentDifficulty = 0.0f;
+      return;
+    }
 
-    while (_currentDifficulty < targetDifficulty && GetDefenderCount() > 0) {
+    Debug.Log($"{_currentDifficulty} : {_targetDifficulty}");
+
+    if (_healthCheckTimer < Time.time) {
+      if (_player.health <= (_lastHealth - _healthDeltaThreshold))
+        AdjustDifficulty(-0.2f);
+      else if (_player.health >= (_lastHealth + _healthDeltaThreshold))
+        AdjustDifficulty(0.2f);
+
+      _lastHealth = _player.health;
+      _healthCheckTimer = Time.time + _healthCheckInterval;
+    }
+
+    if (_difficultyAdjustTimer < Time.time) {
+      if (_targetDifficulty > _baseDifficulty || _targetDifficulty < _baseDifficulty)
+        _targetDifficulty = _baseDifficulty;
+
+      _difficultyAdjustTimer = Time.time + _difficultyAdjustInterval;
+    }
+
+    while (_currentDifficulty > _targetDifficulty && GetPotentialDefenders().Count > 0) {
+      DemoteEnemy();
+    }
+
+    while (_currentDifficulty < _targetDifficulty && GetPotentialAttackers().Count > 0) {
       PromoteEnemy();
     }
 
