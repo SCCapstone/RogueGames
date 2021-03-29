@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject optionsMenuUI;
     public GameObject health;
     public GameObject inventory;
     public GameObject player;
@@ -60,7 +61,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     // Function for the Resume button.
-    public void Resume() {
+    public void Resume()
+    {
         Debug.Log("Resuming game...");
         pauseMenuUI.SetActive(false);
         health.SetActive(true);
@@ -68,6 +70,13 @@ public class PauseMenu : MonoBehaviour
         player.GetComponent<Player>().enabled = true;
         Time.timeScale = 1f;
         GameIsPaused = false;   
+    }
+
+    public void Options()
+    {
+        Debug.Log("Loading Options...");
+        pauseMenuUI.SetActive(false);
+        optionsMenuUI.SetActive(true);
     }
 
     // Function for the Menu button.
