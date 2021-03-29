@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public GameObject deathPopUp;
 
     void Update() {
         for (int i = 0; i < hearts.Length; i++) {
@@ -33,6 +34,17 @@ public class Health : MonoBehaviour
             } else {
                 hearts[i].enabled = false;
             }
+
+            // Player has died, prompt them to restart.
+            if (health == 0)
+            {
+                deathPopUp.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    deathPopUp.SetActive(false);
+                }
+            }
+
         }
     }
 }

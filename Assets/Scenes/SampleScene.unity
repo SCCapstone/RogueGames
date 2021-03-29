@@ -234,6 +234,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112176127}
   m_CullTransparentMesh: 0
+--- !u!1 &174802928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8501439182103200059, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+  m_PrefabInstance: {fileID: 439200773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &228425062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1830,34 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3106058759926897020, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172661660863642470, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943521676940332383, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375421251610207717, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375421251610207717, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552529289548890651, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679283800295735171, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6466089608687135409, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
       propertyPath: m_CellSize.x
       value: 75
@@ -2279,6 +2312,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6474283250753194268, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108465419988698712, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358484572739398207, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501439182103200059, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5903,6 +5948,7 @@ MonoBehaviour:
   - {fileID: 755132257}
   fullHeart: {fileID: 1564688358316481467, guid: 605ef75576728c477b6063607e8651ef, type: 3}
   emptyHeart: {fileID: 5726080727020278575, guid: 605ef75576728c477b6063607e8651ef, type: 3}
+  deathPopUp: {fileID: 174802928}
 --- !u!95 &1364755565
 Animator:
   serializedVersion: 3
