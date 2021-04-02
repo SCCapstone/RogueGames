@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   name: Knife
-  icon: {fileID: -8911280334227773841, guid: eded8f51ba91724418d6731455aa4116, type: 3}
+  icon: {fileID: 21300000, guid: 22d95f4b0d96c53f1a94074ffa6a44b0, type: 3}
   itemDescription: Attack enemies at close range.

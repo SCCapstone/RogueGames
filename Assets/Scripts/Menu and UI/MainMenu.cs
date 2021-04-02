@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    public GameObject craftNotebook;
+    public GameObject mainMenu;
+    public GameObject craftingNotebook;
 
     // Function for the Play button. Starts the prototype.
     public void PlayGame() {
@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
     public void Notebook()
     {
         Debug.Log("Notebook loaded!");
-        craftNotebook.SetActive(true);
+        craftingNotebook.SetActive(true);
+        mainMenu.SetActive(false);
     }
 
     public void Options() {

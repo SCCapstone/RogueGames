@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KnifeRecipe
   m_EditorClassIdentifier: 
   name: Knife Recipe
-  icon: {fileID: -8911280334227773841, guid: eded8f51ba91724418d6731455aa4116, type: 3}
+  icon: {fileID: 21300000, guid: 22d95f4b0d96c53f1a94074ffa6a44b0, type: 3}
   itemDescription: Used for crafting
   result: {fileID: 11400000, guid: 7fbab4d605a57ba48b9d8b0e5193c003, type: 2}
   ingredients:
