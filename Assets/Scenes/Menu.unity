@@ -1979,11 +1979,12 @@ MonoBehaviour:
   m_Text: 'The objective of this Beta build of Brimstone is simple. You will spawn
     in one of 7 rooms, and you are equipped only with a knife and bow. Using these,
     along with your skills, you must defeat the various demons hidden within the
-    remaining 6 rooms before they defeat you!
+    remaining 6 rooms before they defeat you! Then you can approach the sacrificial
+    torch and exit the dungeon.
 
 
-    Controls can be viewed by pressing
-    the Escape key after pressing Play and beginning the game. Good luck...'
+    Controls can be viewed by pressing the Escape
+    key after pressing Play and beginning the game. Good luck...'
 --- !u!222 &1256902325
 CanvasRenderer:
   m_ObjectHideFlags: 0
