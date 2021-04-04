@@ -6423,6 +6423,7 @@ MonoBehaviour:
   primaryWeaponGO: {fileID: 747514395}
   secondaryWeaponGO: {fileID: 1970432875}
   playerAudio: {fileID: 1986735130}
+  playerDamagedSFX: {fileID: 8300000, guid: f23e84b19b4fb4643b81eece03c43cfd, type: 3}
 --- !u!120 &1364755567
 LineRenderer:
   m_ObjectHideFlags: 0

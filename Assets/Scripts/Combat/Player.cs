@@ -36,6 +36,7 @@ public class Player : MonoBehaviour, IDamageable {
 
   // SFX
   public AudioSource playerAudio;
+  public AudioClip playerDamagedSFX;
 
   // Debug
   private LineRenderer _lineRenderer;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour, IDamageable {
       return;
     
     health -= damage;
+    playerAudio.PlayOneShot(playerDamagedSFX, 0.5f);
     _damageColorEndTime = Time.time + _damageColorDuration;
   }
 
