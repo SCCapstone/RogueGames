@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
                 }
          }
 
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (GameIsPaused)
@@ -47,6 +48,7 @@ public class PauseMenu : MonoBehaviour
                 Application.Quit();
             }
         }
+        */
     }
 
     // Function for the action of Pausing.
