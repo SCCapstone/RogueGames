@@ -9,6 +9,7 @@ TagManager:
   - ActiveRoom
   - CompleteRoom
   - Enemy
+  - interObject
   layers:
   - Default
   - TransparentFX

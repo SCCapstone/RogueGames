@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class EndGame : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class EndGame : MonoBehaviour
     public GameObject health;
     public GameObject inventory;
     public GameObject player;
+    public GameObject checkScreen;
+    public GameObject endScreen;
+    public GameObject dungeonObj;
+
 
     // Update is called once per frame
     void Update()
@@ -49,25 +55,38 @@ public class EndGame : MonoBehaviour
 
  	void Pause()
     {
-        Debug.Log("Pausing Game");
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
+        Debug.Log("Pausing game...");
+        checkScreen.SetActive(true);
         health.SetActive(false);
         inventory.SetActive(false);
         player.GetComponent<Player>().enabled = false;
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+
+
+        DungeonGeneration dungeonScript = dungeonObj.GetComponent<DungeonGeneration>();
+
+        if (dungeonScript.AllRoomsComplete()) {
+            endScreen.SetActive(true);
+        }
     }
 
     public void Resume()
     {
-        Debug.Log("Resuming Game");
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+        Debug.Log("Resuming game...");
+        checkScreen.SetActive(false);
         health.SetActive(true);
         inventory.SetActive(true);
         player.GetComponent<Player>().enabled = true;
-        GameIsPaused = false; 
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void LoadMenu() {
+        Debug.Log("Loading Menu...");
+        GameIsPaused = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void QuitGame() {

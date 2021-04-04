@@ -27,8 +27,13 @@ public class ControlsManager : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(keys["CompleteRoom"])) {
             //A way to complete a room from outside. Might want to also make it delete all enemies?
-            GameObject roomManager = GameObject.FindGameObjectWithTag("ActiveRoom");
-            roomManager.tag = "CompleteRoom";
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+            if (playerObj.layer == LayerMask.NameToLayer("GodMode")) {
+
+                GameObject roomManager = GameObject.FindGameObjectWithTag("ActiveRoom");
+                roomManager.GetComponent<RoomManager>().CompleteRoom();
+            }
         }
         if (Input.GetKeyDown(keys["Reset"])) {
             //end/delete any current effects that might persist

@@ -114,7 +114,7 @@ public class EnemyOrchestrator : MonoBehaviour {
       return;
     }
 
-    Debug.Log($"{_currentDifficulty} : {_targetDifficulty}");
+    //Debug.Log($"{_currentDifficulty} : {_targetDifficulty}");
 
     if (_healthCheckTimer < Time.time) {
       if (_player.health <= (_lastHealth - _healthDeltaThreshold))

@@ -18,6 +18,8 @@ public class PlayerInteract : MonoBehaviour
             //}
             Debug.Log("Sent Message");
             currentInterObj.SendMessage("DoInteraction");
+
+            //currentInterObjScript = currentInterObj.GetComponentInChildren<>();
         }
     }
 
