@@ -148,6 +148,8 @@ MonoBehaviour:
   attacking: 0
   health: 4
   spawnPos: {x: 0, y: 0, z: 0}
+  enemySpawnSFX: {fileID: 8300000, guid: 4be96f84af5f6414089bc5572f4b1e3b, type: 3}
+  enemyDeathSFX: {fileID: 8300000, guid: 6e765519ecbb56b49aab2bb0bd9103f9, type: 3}
   speed: 0.5
   damage: 1
   attackDistance: 0.5

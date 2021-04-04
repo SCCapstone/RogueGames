@@ -34,6 +34,9 @@ public class Player : MonoBehaviour, IDamageable {
   private Weapon _activeWeapon;
   private Weapon _inactiveWeapon;
 
+  // SFX
+  public AudioSource playerAudio;
+
   // Debug
   private LineRenderer _lineRenderer;
   private SpriteRenderer _spriteRenderer;
@@ -143,7 +146,11 @@ public class Player : MonoBehaviour, IDamageable {
 
     // Attacking
     if (Input.GetMouseButtonDown(0))
-      _activeWeapon.Attack(playerToMouseDir);
+    {
+            _activeWeapon.Attack(playerToMouseDir);
+            playerAudio.PlayOneShot(_activeWeapon.weaponSFX, 0.2f);
+    }
+      
 
     // Switch weapons
     if (Input.GetMouseButtonDown(1)) {

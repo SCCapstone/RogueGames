@@ -1,0 +1,1 @@
+These sounds work better for blunt-weapon impact SFX.

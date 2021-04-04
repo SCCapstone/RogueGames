@@ -7,6 +7,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable {
   public bool attacking;
   public int health;
   public Vector3 spawnPos;
+  public AudioClip enemySpawnSFX;
+  public AudioClip enemyDeathSFX;
   
   public abstract void ActAggressive();
   public abstract void ActDefensive();

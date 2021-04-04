@@ -98,8 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 0.3
+  attacking: 0
   health: 2
   spawnPos: {x: 0, y: 0, z: 0}
+  enemySpawnSFX: {fileID: 8300000, guid: 6dc5aecbacef09b448062cdcff6ec680, type: 3}
+  enemyDeathSFX: {fileID: 8300000, guid: d8ca7017d51f04d45ae1f4a4922638b9, type: 3}
   arrowPrefab: {fileID: 5095310179508623428, guid: 4996fcef32d83ed40bcede1eb1ebf0f9, type: 3}
   speed: 2
   meleeDamage: 1

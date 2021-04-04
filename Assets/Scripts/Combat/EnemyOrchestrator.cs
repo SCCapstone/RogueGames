@@ -19,6 +19,8 @@ public class EnemyOrchestrator : MonoBehaviour {
   private List<Enemy> _enemies;
   private List<Vector3> _spawns;
 
+  public AudioSource enemyAudio;
+
   // Public API for enemy orchestration
   public GameObject SpawnEnemy(string name, Vector3 pos) {
     GameObject enemyGO = Instantiate(
@@ -26,6 +28,7 @@ public class EnemyOrchestrator : MonoBehaviour {
     Enemy enemy = enemyGO.GetComponent<Enemy>();
     enemy.spawnPos = pos;
     _enemies.Add(enemy);
+    enemyAudio.PlayOneShot(enemy.enemySpawnSFX, 0.3f);
 
     return enemyGO;
   }
@@ -143,6 +146,7 @@ public class EnemyOrchestrator : MonoBehaviour {
         if (enemy.attacking)
           _currentDifficulty -= enemy.difficulty;
 
+        enemyAudio.PlayOneShot(enemy.enemyDeathSFX, 0.3f);
         Destroy(enemy.gameObject);
         continue;
       }

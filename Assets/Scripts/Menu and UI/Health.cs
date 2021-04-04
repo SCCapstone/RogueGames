@@ -7,12 +7,23 @@ public class Health : MonoBehaviour
 {
     public int health;
     public int numberOfHearts;
+    public bool audioHasPlayed;
 
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
     public GameObject deathPopUp;
     public GameObject pauseCV;
+    public AudioSource playerAudio;
+    public AudioClip deathSFX;
+
+    void Start()
+    {
+        audioHasPlayed = false;
+        GetComponent<Player>().enabled = true;
+        pauseCV.GetComponent<PauseMenu>().enabled = true;
+        deathPopUp.SetActive(false);
+    }
 
     void Update() {
         for (int i = 0; i < hearts.Length; i++) {
@@ -39,15 +50,16 @@ public class Health : MonoBehaviour
             // Player has died, prompt them to restart.
             if (health == 0)
             {
+                if (!audioHasPlayed)
+                {
+                    playerAudio.PlayOneShot(deathSFX, 0.25f);
+                    audioHasPlayed = true;
+                }
+                //playerAudio.clip = deathSFX;
+                //playerAudio.Play();
                 GetComponent<Player>().enabled = false;
                 pauseCV.GetComponent<PauseMenu>().enabled = false;
                 deathPopUp.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    GetComponent<Player>().enabled = true;
-                    pauseCV.GetComponent<PauseMenu>().enabled = true;
-                    deathPopUp.SetActive(false);
-                }
             }
 
         }

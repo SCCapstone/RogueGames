@@ -3,7 +3,9 @@ guid: f9e58b7f9db2ec64ba32f460136c0fee
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemySpawnSFX: {instanceID: 0}
+  - enemyDeathSFX: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
