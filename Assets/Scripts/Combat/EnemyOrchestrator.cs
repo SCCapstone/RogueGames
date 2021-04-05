@@ -148,6 +148,9 @@ public class EnemyOrchestrator : MonoBehaviour {
 
         enemyAudio.PlayOneShot(enemy.enemyDeathSFX, 0.3f);
         Destroy(enemy.gameObject);
+        Item newItem = enemy.itemList[Random.Range(0, enemy.itemList.Count)];
+        Inventory.instance.AddItem(Instantiate(newItem));
+         
         continue;
       }
 

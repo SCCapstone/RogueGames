@@ -150,6 +150,9 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0, z: 0}
   enemySpawnSFX: {fileID: 8300000, guid: 77c5bb7fc87095048a73723aa40cf519, type: 3}
   enemyDeathSFX: {fileID: 8300000, guid: 4e2d2b16e03027444846ef71b9d47b37, type: 3}
+  itemList:
+  - {fileID: 11400000, guid: 25a8911725f32aa49a8a7394250d7286, type: 2}
+  - {fileID: 11400000, guid: 2a5e1817c3d01404ebe798fcea8f27f3, type: 2}
   speed: 0.5
   damage: 1
   attackDistance: 0.5

@@ -9,8 +9,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable {
   public Vector3 spawnPos;
   public AudioClip enemySpawnSFX;
   public AudioClip enemyDeathSFX;
-  
-  public abstract void ActAggressive();
+  public List<Item> itemList = new List<Item>();
+
+
+    public abstract void ActAggressive();
   public abstract void ActDefensive();
   public abstract void TakeDamage(int damage);
 }

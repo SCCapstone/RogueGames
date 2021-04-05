@@ -103,6 +103,9 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0, z: 0}
   enemySpawnSFX: {fileID: 8300000, guid: 6dc5aecbacef09b448062cdcff6ec680, type: 3}
   enemyDeathSFX: {fileID: 8300000, guid: 7a2b2e34fa943b64a81d820a1cc45759, type: 3}
+  itemList:
+  - {fileID: 11400000, guid: 25a8911725f32aa49a8a7394250d7286, type: 2}
+  - {fileID: 11400000, guid: 2a5e1817c3d01404ebe798fcea8f27f3, type: 2}
   arrowPrefab: {fileID: 5095310179508623428, guid: 4996fcef32d83ed40bcede1eb1ebf0f9, type: 3}
   speed: 2
   meleeDamage: 1
