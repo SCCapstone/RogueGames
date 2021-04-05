@@ -7,7 +7,8 @@ public class Imp : Enemy {
   public int damage;
   public float attackDistance;
   public float attackSpeedMultiplier;
- 
+  public List<Item> itemList = new List<Item>();
+
   private GameObject _playerGO;
   private Player _player;
 
@@ -69,8 +70,12 @@ public class Imp : Enemy {
   }
 
   void Update() {
-    if (health <= 0f)
-      Destroy(gameObject);
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+            Item newItem = itemList[Random.Range(0, itemList.Count)];
+            Inventory.instance.AddItem(Instantiate(newItem));
+        }
   }
 
   void SetRandomWalkTarget() {

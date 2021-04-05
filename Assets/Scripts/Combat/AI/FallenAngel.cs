@@ -9,7 +9,8 @@ public class FallenAngel : Enemy {
   public float shootFrequency;
   public float defensiveDistance;
   public float aggressiveDistance;
-  
+  public List<Item> itemList = new List<Item>();
+
   private GameObject _playerGO;
   private Player _player;
   private float _nextShootTime = 0f;
@@ -49,9 +50,12 @@ public class FallenAngel : Enemy {
   }
 
   void Update() {
-    if (health <= 0f)
-      Destroy(gameObject);
-
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+            Item newItem = itemList[Random.Range(0, itemList.Count)];
+            Inventory.instance.AddItem(Instantiate(newItem));
+        }
     Vector3 fallenToPlayer = _playerGO.transform.position - transform.position;
     float fallenToPlayer_dist = fallenToPlayer.magnitude;
     Vector3 moveDir = fallenToPlayer.normalized;

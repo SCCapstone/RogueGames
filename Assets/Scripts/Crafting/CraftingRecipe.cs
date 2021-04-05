@@ -40,7 +40,10 @@ public class CraftingRecipe : Item
             RemoveIngredientsFromIventory();
 
             //add a item to the inventory
-            Inventory.instance.AddItem(result);
+            if (result.name == "Sword")
+                Sword.durability = 1f;
+            if (result.name == "Bow")
+                Bow.durability = 1f;
             Debug.Log("You just crafted a: " + result.name);
         }
         else

@@ -105,6 +105,9 @@ MonoBehaviour:
   shootFrequency: 0.8
   defensiveDistance: 1.2
   aggressiveDistance: 0.4
+  itemList:
+  - {fileID: 11400000, guid: 2a5e1817c3d01404ebe798fcea8f27f3, type: 2}
+  - {fileID: 11400000, guid: 25a8911725f32aa49a8a7394250d7286, type: 2}
 --- !u!50 &220663947906319071
 Rigidbody2D:
   serializedVersion: 4

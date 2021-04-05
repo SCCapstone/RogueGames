@@ -150,3 +150,6 @@ MonoBehaviour:
   damage: 1
   attackDistance: 0.5
   attackSpeedMultiplier: 1.5
+  itemList:
+  - {fileID: 11400000, guid: 25a8911725f32aa49a8a7394250d7286, type: 2}
+  - {fileID: 11400000, guid: 2a5e1817c3d01404ebe798fcea8f27f3, type: 2}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32d40430d2cdcb44a8a8f166b4ebf049, type: 3}
-  m_Name: KnifeRecipe
+  m_Name: SwordRecipe
   m_EditorClassIdentifier: 
   name: Knife Recipe
   icon: {fileID: -8911280334227773841, guid: eded8f51ba91724418d6731455aa4116, type: 3}
