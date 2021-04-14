@@ -28,7 +28,7 @@ public class FallenAngel : Enemy {
       GameObject arrowGO = Instantiate(arrowPrefab, transform.position,
           Quaternion.AngleAxis(arrowAngle, Vector3.forward)) as GameObject;
       arrowGO.GetComponent<Arrow>().shooter = gameObject;
-      _nextShootTime += shootFrequency;
+      _nextShootTime = Time.time + 1/shootFrequency;
     }
   }
 

@@ -48,6 +48,7 @@ public class Player : MonoBehaviour, IDamageable {
     health -= damage;
     playerAudio.PlayOneShot(playerDamagedSFX, 0.5f);
     _damageColorEndTime = Time.time + _damageColorDuration;
+    Debug.Log("Player Took Damage");
   }
 
   void Start() {
@@ -195,6 +196,7 @@ public class Player : MonoBehaviour, IDamageable {
 
   public void healPlayer(int plusHP) {
     //Heals the player for plusHP hearts, up to the max
-    health+=plusHP;
+    health = Mathf.Min(health + plusHP, _healthUI.numberOfHearts);
+    
   }
 }
