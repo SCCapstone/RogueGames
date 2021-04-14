@@ -6,7 +6,7 @@ public class PlayerInteract : MonoBehaviour {
   public Inventory inventory;
 
   void Update() {
-    if (Input.GetKeyDown(KeyCode.Q) && currentInterObj) {
+    if ( Input.GetKeyDown(KeyCode.Q) && currentInterObj) {
       //if (currentInterObjScript.invent)
       //{
       //    inventory.AddItem(currentInterObj);
@@ -15,6 +15,9 @@ public class PlayerInteract : MonoBehaviour {
       currentInterObj.SendMessage("DoInteraction");
 
       //currentInterObjScript = currentInterObj.GetComponentInChildren<>();
+    }
+    if (Input.GetKeyDown(KeyCode.Escape) && currentInterObj) {
+      currentInterObj.SendMessage("Resume");
     }
   }
 

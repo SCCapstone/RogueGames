@@ -128,9 +128,15 @@ public class Player : MonoBehaviour, IDamageable {
     rb.MovePosition(transform.position + movement);
     //transform.position += moveDir * speed * Time.deltaTime;
 
+
+
   }
 
   void Update() {
+    if (Time.timeScale == 0f) {
+      return;
+    }
+
     // Handle damage
     if (Time.time < _damageColorEndTime)
       _spriteRenderer.color = Color.red;
