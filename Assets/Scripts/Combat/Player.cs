@@ -127,6 +127,7 @@ public class Player : MonoBehaviour, IDamageable {
     Vector3 movement = _moveDir * _speed * Time.fixedDeltaTime;
     rb.MovePosition(transform.position + movement);
     //transform.position += moveDir * speed * Time.deltaTime;
+
   }
 
   void Update() {

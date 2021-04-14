@@ -6,6 +6,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable {
   public bool attacking;
   public int health;
   public Vector3 spawnPos;
+  public Rigidbody2D rb;
   public AudioClip enemySpawnSFX;
   public AudioClip enemyDeathSFX;
   public List<Item> itemList = new List<Item>();

@@ -10,7 +10,6 @@ public class Imp : Enemy {
   private GameObject _playerGO;
   private Player _player;
 
-  private Rigidbody2D _rigidbody;
   private bool _retreat = false;
 
   public override void TakeDamage(int damage) {
@@ -30,7 +29,7 @@ public class Imp : Enemy {
       movement *= attackSpeedMultiplier;
     }
 
-    _rigidbody.MovePosition(transform.position + movement);
+    rb.MovePosition(transform.position + movement);
   }
 
   public override void ActDefensive() {
@@ -42,7 +41,7 @@ public class Imp : Enemy {
     Vector3 moveDir = impToTarget.normalized + (repulsion.normalized * 1.1f);
 
     Vector3 movement = moveDir * speed * Time.deltaTime;
-    _rigidbody.MovePosition(transform.position + movement);
+    rb.MovePosition(transform.position + movement);
   }
 
   List<Vector3> GetImpPositions() {
@@ -92,7 +91,6 @@ public class Imp : Enemy {
   void Start() {
     _playerGO = GameObject.FindGameObjectWithTag("Player");
     _player = _playerGO.GetComponent<Player>();
-    _rigidbody = GetComponent<Rigidbody2D>();
   }
 
   void Update() {

@@ -1668,7 +1668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 966653053094169468, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121335195579267551, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2742,6 +2742,7 @@ MonoBehaviour:
   gameControls: {fileID: 1257005357}
   health: {fileID: 1718655706}
   inventory: {fileID: 1367887649}
+  started: 0
 --- !u!1 &628642791
 GameObject:
   m_ObjectHideFlags: 0

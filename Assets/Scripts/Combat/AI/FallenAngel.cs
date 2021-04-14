@@ -46,7 +46,7 @@ public class FallenAngel : Enemy {
     _player = _playerGO.GetComponent<Player>();
   }
 
-  void Update() {
+  void FixedUpdate() {
     Vector3 fallenToPlayer = _playerGO.transform.position - transform.position;
     float fallenToPlayer_dist = fallenToPlayer.magnitude;
     Vector3 moveDir = fallenToPlayer.normalized;
@@ -55,6 +55,11 @@ public class FallenAngel : Enemy {
       moveDir = -fallenToPlayer.normalized;
 
     float speed_multiplier = 0.2f * Mathf.Pow(fallenToPlayer_dist - defensiveDistance, 2f);
-    transform.position += moveDir * (speed * speed_multiplier) * Time.deltaTime;
+
+    Vector3 movement = moveDir * speed*speed_multiplier * Time.fixedDeltaTime;
+    rb.MovePosition(transform.position + movement);
+    //transform.position += moveDir * (speed * speed_multiplier) * Time.deltaTime;
+    Debug.Log(Time.timeScale);
+
   }
 }
