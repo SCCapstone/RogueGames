@@ -4,8 +4,13 @@ public class PlayerInteract : MonoBehaviour {
   public GameObject currentInterObj = null;
   public interactionObject currentInterObjScript = null;
   public Inventory inventory;
+  public Player player;
 
   void Update() {
+    if (player.health == 0) {
+      return;
+    }
+
     if ( Input.GetKeyDown(KeyCode.Q) && currentInterObj) {
       //if (currentInterObjScript.invent)
       //{
