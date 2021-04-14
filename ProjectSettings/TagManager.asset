@@ -10,6 +10,8 @@ TagManager:
   - CompleteRoom
   - Enemy
   - interObject
+  - Sword
+  - Bow
   layers:
   - Default
   - TransparentFX

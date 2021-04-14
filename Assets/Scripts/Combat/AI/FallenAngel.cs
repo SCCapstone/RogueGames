@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FallenAngel : Enemy {
   public GameObject arrowPrefab;
@@ -9,7 +7,7 @@ public class FallenAngel : Enemy {
   public float shootFrequency;
   public float defensiveDistance;
   public float aggressiveDistance;
-  
+
   private GameObject _playerGO;
   private Player _player;
   private float _nextShootTime = 0f;
@@ -33,7 +31,7 @@ public class FallenAngel : Enemy {
       _nextShootTime += shootFrequency;
     }
   }
-  
+
   public override void ActDefensive() {
     _targetDistance = defensiveDistance;
   }

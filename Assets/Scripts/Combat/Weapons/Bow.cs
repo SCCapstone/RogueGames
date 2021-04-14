@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bow : Weapon {
   public GameObject arrowPrefab;
@@ -22,8 +20,13 @@ public class Bow : Weapon {
     }
   }
 
+  public void plusOneArrow() {
+    durability += baseDegrade;
+  }
+
   void Start() {
     _spriteRenderer = GetComponent<SpriteRenderer>();
+    name = "Bow";
   }
 
   void Update() {

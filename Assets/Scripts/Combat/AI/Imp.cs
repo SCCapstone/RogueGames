@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Imp : Enemy {
@@ -7,7 +6,7 @@ public class Imp : Enemy {
   public int damage;
   public float attackDistance;
   public float attackSpeedMultiplier;
- 
+
   private GameObject _playerGO;
   private Player _player;
 
@@ -27,14 +26,13 @@ public class Imp : Enemy {
 
     if (_retreat) {
       movement *= -attackSpeedMultiplier;
-    }
-    else if (impToPlayer.magnitude < attackDistance) {
+    } else if (impToPlayer.magnitude < attackDistance) {
       movement *= attackSpeedMultiplier;
     }
 
     _rigidbody.MovePosition(transform.position + movement);
   }
-  
+
   public override void ActDefensive() {
     List<Vector3> impPositions = GetImpPositions();
     Vector3 impCenter = ComputeCenterOfMass(impPositions);
