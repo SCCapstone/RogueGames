@@ -23,7 +23,8 @@ follow the install instructions listed below or in the readme on the github.
 ###   Email: mhmccoy@email.sc.edu, Linkedin: https://www.linkedin.com/in/mark-mccoy-94217a1b7/
 >  Hi I'm Mark! I'm a senior graduating from the University of South Carolina with a BSE in Computer Science and a minor 
 >  in history. I was President of the Gamecock Swim Club and a fighter and Secretary of Gamecock Boxing. Currently looking for
->  work for after graduation. 
+>  work for after graduation.
+ 
 ## James Thompson
 ###   Email: jameset@email.sc.edu, 
 
