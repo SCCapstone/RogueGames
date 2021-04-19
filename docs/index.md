@@ -14,18 +14,18 @@ follow the install instructions listed below or in the readme on the github.
 
 # About the Creators
 ## Logan Corley
-###   Email: lcorley@email.sc.edu
+Email: lcorley@email.sc.edu
 ## Alex Johnson
-###   Email: jvj1@email.sc.edu
+Email: jvj1@email.sc.edu
 ## Lukas F. McClamrock
-###   Email: lukasm@email.sc.edu
+Email: lukasm@email.sc.edu
 ## Mark H. McCoy
-###   Email: mhmccoy@email.sc.edu, Linkedin: https://www.linkedin.com/in/mark-mccoy-94217a1b7/
+Email: mhmccoy@email.sc.edu, Linkedin: https://www.linkedin.com/in/mark-mccoy-94217a1b7/
   Hi I'm Mark! I'm a senior graduating from the University of South Carolina with a BSE in Computer Science and a minor 
   in history. I was President of the Gamecock Swim Club and a fighter and Secretary of Gamecock Boxing. Currently looking for
   work for after graduation. 
 ## James Thompson
-  ### Email: jameset@email.sc.edu, 
+Email: jameset@email.sc.edu, 
 
 
 # How to Play
