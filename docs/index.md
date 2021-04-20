@@ -25,7 +25,7 @@ follow the install instructions listed below or in the readme on the github.
 ![capstone3](https://user-images.githubusercontent.com/55214323/115335679-a662d680-a16b-11eb-92bf-c48bca84f4e7.PNG)
 
 
-
+--------------------------------------------------------
 
 
 # About the Creators
