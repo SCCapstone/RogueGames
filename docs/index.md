@@ -1,5 +1,5 @@
 ---
-youtubeId: CBQGTAU8eYM&list=WL&index=75
+youtubeId: CBQGTAU8eYM
 ---
 
 Welcome to Project Brimstone 
