@@ -36,7 +36,7 @@ follow the install instructions listed below or in the readme on the github.
 ## Lukas F. McClamrock
 ###   Email: lukasm@email.sc.edu
 ## Mark H. McCoy
-###   Email: mhmccoy@email.sc.edu, Linkedin: https://www.linkedin.com/in/mark-mccoy-94217a1b7/
+###   Email: mhmccoy@email.sc.edu, [Linkedin](https://www.linkedin.com/in/mark-mccoy-94217a1b7/)
 >  Hi I'm Mark! I'm a senior graduating from the University of South Carolina with a BSE in Computer Science and a minor 
 >  in history. I was President of the Gamecock Swim Club and a fighter and Secretary of Gamecock Boxing. Currently looking for
 >  work for after graduation.
@@ -66,15 +66,15 @@ Project Brimstone is being developed on Windows 10 and is currently the only sup
 5. Done! Project Brimstone will build and open itself for you to play 
 
 ## Controls 
-WASD - Moving left, right, up and down
-Left Shift - Dash
-Left Click - Attack
-Right Click - Change Weapons
-R - Restart
-Esacpe - Pause/Unpause
-I - Open and Close Inventory
-X - Spawn Materials in Inventory
-G - God Mode
+WASD - Moving left, right, up and down  
+Left Shift - Dash  
+Left Click - Attack  
+Right Click - Change Weapons  
+R - Restart  
+Esacpe - Pause/Unpause  
+I - Open and Close Inventory  
+X - Spawn Materials in Inventory  
+G - God Mode  
 
 ## Deployment
 
