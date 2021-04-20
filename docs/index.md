@@ -23,7 +23,7 @@ follow the install instructions listed below or in the readme on the github.
 ![capstone](https://user-images.githubusercontent.com/55214323/115335533-61d73b00-a16b-11eb-8ed8-603df1e7033c.PNG)
 ![capstone2](https://user-images.githubusercontent.com/55214323/115335675-a367e600-a16b-11eb-887f-88ff84a04ae5.PNG)
 ![capstone3](https://user-images.githubusercontent.com/55214323/115335679-a662d680-a16b-11eb-92bf-c48bca84f4e7.PNG)
-![wall_torch](https://user-images.githubusercontent.com/55214323/115336101-7d8f1100-a16c-11eb-9eb2-097ec3e0f438.png)
+
 
 
 
@@ -45,7 +45,7 @@ follow the install instructions listed below or in the readme on the github.
 ###   Email: jameset@email.sc.edu, 
 
 
-
+-----------------------------------------------------------
 
 
 # How to Play
