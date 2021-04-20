@@ -1,3 +1,7 @@
+---
+youtubeId: CBQGTAU8eYM&list=WL&index=75
+---
+
 Welcome to Project Brimstone 
 
 # About the Game
@@ -10,7 +14,9 @@ inferno. A full description can be found [here](https://github.com/SCCapstone/Ro
 If you want to play the game check out our github repo [here](https://github.com/SCCapstone/RogueGames) and then 
 follow the install instructions listed below or in the readme on the github.
 
+### Temporary Video
 
+{% include youtubePlayer.html id=page.youtubeId %}
 
 # About the Creators
 ## Logan Corley
