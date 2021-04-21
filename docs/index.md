@@ -33,6 +33,8 @@ follow the install instructions listed below or in the readme on the github.
 ###   Email: lcorley@email.sc.edu
 ## Alex Johnson
 ###   Email: jvj1@email.sc.edu
+>Hey, I'm Alex. I'm a Junior in Computer Engineering at UoSC with minors in Computer Science and Mathematics. I research in the autonomous field robotics lab under Dr Rekleitis, >working on adaptable robots in aquatic environments. I hope to continue my research in the coming years.
+
 ## Lukas F. McClamrock
 ###   Email: lukasm@email.sc.edu
 ## Mark H. McCoy
