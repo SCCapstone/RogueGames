@@ -33,10 +33,15 @@ follow the install instructions listed below or in the readme on the github.
 ###   Email: lcorley@email.sc.edu
 ## Alex Johnson
 ###   Email: jvj1@email.sc.edu
->Hey, I'm Alex. I'm a Junior in Computer Engineering at UoSC with minors in Computer Science and Mathematics. I research in the autonomous field robotics lab under Dr Rekleitis, >working on adaptable robots in aquatic environments. I hope to continue my research in the coming years.
+> Hey, I'm Alex. I'm a Junior in Computer Engineering at UoSC with minors in Computer Science and Mathematics. I research in the autonomous field robotics lab under Dr
+> Rekleitis,
+> working on adaptable robots in aquatic environments. I hope to continue my research in the coming years.
 
 ## Lukas F. McClamrock
 ###   Email: lukasm@email.sc.edu
+> Hey my name is Lukas. I'm a senior graduating with a degree in computer science and a minor in criminal justice. I also play and am a captain of the club 
+> ultimate frisbee team. After graduation I will be starting a job at BlueCross BlueShield of South Carolina doing corporate application development.
+
 ## Mark H. McCoy
 ###   Email: mhmccoy@email.sc.edu, [Linkedin](https://www.linkedin.com/in/mark-mccoy-94217a1b7/)
 >  Hi I'm Mark! I'm a senior graduating from the University of South Carolina with a BSE in Computer Science and a minor 
@@ -45,7 +50,9 @@ follow the install instructions listed below or in the readme on the github.
  
 ## James Thompson
 ###   Email: jameset@email.sc.edu, 
-
+> Hey there! I'm James, and I'm a Senior @ UofSC majoring in Computer Science. In my past years, I served as club president of the Carolina Gamers Club, and I'm looking to take
+> that experience into my life after graduation. I'm currently unsure where the future will take me, but I know this project will help lead me to plenty of opportunities in
+> time!
 
 -----------------------------------------------------------
 
