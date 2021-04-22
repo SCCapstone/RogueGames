@@ -31,6 +31,10 @@ follow the install instructions listed below or in the readme on the github.
 # About the Creators
 ## Logan Corley
 ###   Email: lcorley@email.sc.edu
+> Hello, my name is Logan Corley. I am a CS senior on track to graduate this semester with a BS in computer science and minor in mathematics. In July I will begin studying
+> business at Darla Moore to earn my MBA. I enjoy programming all types of solutions; in particular I enjoy making web apps, graphical applications, and developer tools. I hope
+> to use my knowledge of technology to help innovate existing businesses; if I'm crazy enough, I may try to start a business myself one day.
+
 ## Alex Johnson
 ###   Email: jvj1@email.sc.edu
 > Hey, I'm Alex. I'm a Junior in Computer Engineering at UoSC with minors in Computer Science and Mathematics. I research in the autonomous field robotics lab under Dr
