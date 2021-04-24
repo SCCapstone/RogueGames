@@ -72,6 +72,13 @@ public class EndGame : MonoBehaviour {
     GameIsPaused = false;
   }
 
+  //close menu without pausing, used if player presses esc while menu is up
+  public void closeMenu() {
+    Debug.Log("closing menu...");
+    checkScreen.SetActive(false);
+    GameIsPaused = false;
+  }
+
   public void LoadMenu() {
     Debug.Log("Loading Menu...");
     GameIsPaused = false;

@@ -5,13 +5,17 @@ public class PlayerInteract : MonoBehaviour {
   public interactionObject currentInterObjScript = null;
   public Inventory inventory;
   public Player player;
+  public GameObject pauseMenu;
 
   void Update() {
+    //if player is dead
     if (player.health == 0) {
       return;
     }
 
-    if ( Input.GetKeyDown(KeyCode.Q) && currentInterObj) {
+
+
+    if ( Input.GetKeyDown(KeyCode.Q) && currentInterObj && !pauseMenu.activeSelf ) {
       //if (currentInterObjScript.invent)
       //{
       //    inventory.AddItem(currentInterObj);
@@ -19,10 +23,13 @@ public class PlayerInteract : MonoBehaviour {
       Debug.Log("Sent Message");
       currentInterObj.SendMessage("DoInteraction");
 
+
       //currentInterObjScript = currentInterObj.GetComponentInChildren<>();
     }
     if (Input.GetKeyDown(KeyCode.Escape) && currentInterObj) {
-      currentInterObj.SendMessage("Resume");
+      currentInterObj.SendMessage("closeMenu");
+      
+      
     }
   }
 

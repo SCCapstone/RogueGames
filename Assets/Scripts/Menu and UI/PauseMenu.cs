@@ -17,7 +17,6 @@ public class PauseMenu : MonoBehaviour {
       } else {
         Pause();
       }
-      Debug.Log(Time.timeScale);
 
     }
 
