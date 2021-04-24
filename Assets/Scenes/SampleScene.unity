@@ -2747,6 +2747,7 @@ MonoBehaviour:
   health: {fileID: 1718655706}
   inventory: {fileID: 1367887649}
   started: 0
+  skipControls: 0
 --- !u!1 &628642791
 GameObject:
   m_ObjectHideFlags: 0
@@ -8964,6 +8965,10 @@ PrefabInstance:
     - target: {fileID: 9006779982064359650, guid: 36561a4e111d55d48ac961f6d4dbce98, type: 3}
       propertyPath: m_Name
       value: EndGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006779982064359650, guid: 36561a4e111d55d48ac961f6d4dbce98, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9006779982064359657, guid: 36561a4e111d55d48ac961f6d4dbce98, type: 3}
       propertyPath: m_LocalPosition.x
