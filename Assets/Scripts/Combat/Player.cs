@@ -172,7 +172,9 @@ public class Player : MonoBehaviour, IDamageable {
     // Attacking
     if (Input.GetMouseButtonDown(0)) {
       _activeWeapon.Attack(playerToMouseDir);
-      playerAudio.PlayOneShot(_activeWeapon.weaponSFX, 0.2f);
+      if (_activeWeapon.durability > 0) {
+        playerAudio.PlayOneShot(_activeWeapon.weaponSFX, 0.2f);
+      }
     }
 
 
