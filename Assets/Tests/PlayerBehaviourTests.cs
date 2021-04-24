@@ -20,6 +20,10 @@ namespace Tests {
 
       player.transform.position = new Vector3(setX, setY, 0f);
 
+      GameObject uiObj = GameObject.FindGameObjectWithTag("InGameUI");
+      FirstTimeControls firstTimeControlsScript = uiObj.GetComponent<FirstTimeControls>();
+      firstTimeControlsScript.skipControls = true;
+
       yield return new WaitForSeconds(0.1f);
 
       Assert.That(player.transform.position.x, Is.LessThan(setX));

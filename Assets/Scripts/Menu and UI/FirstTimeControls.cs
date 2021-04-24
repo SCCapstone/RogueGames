@@ -5,13 +5,14 @@ public class FirstTimeControls : MonoBehaviour {
   public GameObject health;
   public GameObject inventory;
   public bool started = false;
+  public bool skipControls = false;
 
   void Start() {
     Time.timeScale = 0f;
   }
 
   void Update() {
-    if (!started && Input.anyKey) {
+    if ( !started && (Input.anyKey || skipControls)) {
       gameControls.SetActive(false);
       health.SetActive(true);
       inventory.SetActive(true);

@@ -12,6 +12,7 @@ TagManager:
   - interObject
   - Sword
   - Bow
+  - InGameUI
   layers:
   - Default
   - TransparentFX

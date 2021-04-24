@@ -124,17 +124,21 @@ public class Room {
       GameObject.Destroy(go);
     }
   }
+
+  public Dictionary<string, Room> getNeighbors() {
+    return neighbors;
+  }
 }
 
 public class DungeonGeneration : MonoBehaviour {
   [SerializeField]
-  private int numRooms = 7;
+  public int numRooms = 7;
 
   [SerializeField]
-  private bool genEnabled = true;
+  public bool genEnabled = true;
 
   [SerializeField]
-  private float obstacleChance = 0.4f;
+  public float obstacleChance = 0.4f;
 
   private Room startRoom;
 
@@ -269,7 +273,7 @@ public class DungeonGeneration : MonoBehaviour {
   }
 
 
-  public Room StartRoom() {
+  public Room getStartRoom() {
     return this.startRoom;
   }
 
@@ -282,5 +286,11 @@ public class DungeonGeneration : MonoBehaviour {
     }
     return true;
   }
+
+
+  public Room[,] getRoomArray() {
+    return rooms;
+  }
+
 
 }

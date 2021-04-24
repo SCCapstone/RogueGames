@@ -1993,6 +1993,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6466089609279503862, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
+      propertyPath: m_TagString
+      value: InGameUI
+      objectReference: {fileID: 0}
     - target: {fileID: 6466089609279503863, guid: d7f4ba0b096a3ba009f91e83cdac4a89, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.37890118
