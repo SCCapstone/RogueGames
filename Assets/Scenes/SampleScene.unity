@@ -6561,6 +6561,7 @@ MonoBehaviour:
   currentInterObjScript: {fileID: 0}
   inventory: {fileID: 0}
   player: {fileID: 1364755566}
+  pauseMenu: {fileID: 1803405858}
 --- !u!1 &1367887649
 GameObject:
   m_ObjectHideFlags: 0
