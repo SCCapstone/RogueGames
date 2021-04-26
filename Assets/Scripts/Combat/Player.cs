@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable {
   public Animator animator;
@@ -33,6 +31,7 @@ public class Player : MonoBehaviour, IDamageable {
   private bool _primaryActive = true;
   private Weapon _activeWeapon;
   private Weapon _inactiveWeapon;
+  private bool _attackEnabled = true;
 
   // SFX
   public AudioSource playerAudio;
@@ -46,10 +45,11 @@ public class Player : MonoBehaviour, IDamageable {
   public void TakeDamage(int damage) {
     if (_dodging)
       return;
-    
+
     health -= damage;
     playerAudio.PlayOneShot(playerDamagedSFX, 0.5f);
     _damageColorEndTime = Time.time + _damageColorDuration;
+    Debug.Log("Player Took Damage");
   }
 
   void Start() {
@@ -71,11 +71,28 @@ public class Player : MonoBehaviour, IDamageable {
     if (_primaryActive) {
       primaryWeaponGO.SetActive(true);
       secondaryWeaponGO.SetActive(false);
-    }
-    else {
+    } else {
       primaryWeaponGO.SetActive(false);
       secondaryWeaponGO.SetActive(true);
     }
+  }
+
+  public void replenishWeapon(string name, float valToReplenish) {
+    if (_activeWeapon.name == name) {
+      _activeWeapon.Replenish(valToReplenish);
+    } else if (_inactiveWeapon.name == name) {
+      _inactiveWeapon.Replenish(valToReplenish);
+    } 
+
+  }
+
+  public void replenishAmmo(string name) {
+    if (_activeWeapon.name == name) {
+      _activeWeapon.Replenish(_activeWeapon.baseDegrade);
+    } else if (_inactiveWeapon.name == name) {
+      _inactiveWeapon.Replenish(_activeWeapon.baseDegrade);
+    }
+
   }
 
   public void Move(Vector2 moveInput, bool dodge = false) {
@@ -88,13 +105,13 @@ public class Player : MonoBehaviour, IDamageable {
       _dodgeRefreshTime = Time.time + dodgeCooldown;
       _dodgeEndTime = Time.time + dodgeDuration;
     }
-    
+
     _speed = baseSpeed;
 
     if (_dodging) {
       _moveDir = _dodgeDir;
       float t = 1f - (_dodgeEndTime - Time.time) / dodgeDuration;
-      
+
       if (t > 1f)
         _dodging = false;
       else
@@ -114,6 +131,10 @@ public class Player : MonoBehaviour, IDamageable {
   }
 
   void Update() {
+    if (Time.timeScale == 0f) {
+      return;
+    }
+
     // Handle damage
     if (Time.time < _damageColorEndTime)
       _spriteRenderer.color = Color.red;
@@ -129,9 +150,9 @@ public class Player : MonoBehaviour, IDamageable {
     Vector2 moveInput;
 
     if (_useRawInput)
-      moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); 
+      moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     else
-      moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); 
+      moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
     Move(moveInput, Input.GetKeyDown(KeyCode.LeftShift));
 
@@ -147,12 +168,10 @@ public class Player : MonoBehaviour, IDamageable {
     _lineRenderer.SetPosition(1, transform.position + 0.3f * playerToMouseDir);
 
     // Attacking
-    if (Input.GetMouseButtonDown(0))
-    {
-            _activeWeapon.Attack(playerToMouseDir);
-            playerAudio.PlayOneShot(_activeWeapon.weaponSFX, 0.2f);
+    if (_attackEnabled && Input.GetMouseButtonDown(0) && _activeWeapon.durability > 0) {
+      _activeWeapon.Attack(playerToMouseDir);
+      playerAudio.PlayOneShot(_activeWeapon.weaponSFX, 0.2f);
     }
-      
 
     // Switch weapons
     if (Input.GetMouseButtonDown(1)) {
@@ -162,20 +181,34 @@ public class Player : MonoBehaviour, IDamageable {
     _healthUI.health = health;
   }
 
-/*  void OnGUI() {
-    GUI.Box(new Rect(10, 10, 240, 200), "Dev Menu");
-    _useRawInput = GUI.Toggle(new Rect(20, 40, 80, 20), _useRawInput, "Raw Input");
-
-    GUI.Label(new Rect(20, 100, 200, 20), "Weapon Durability: " + _activeWeapon.durability.ToString("n2"));
-    if (GUI.Button(new Rect(20, 120, 120, 20), "Restore Durability"))
-      _activeWeapon.durability = 1.0f;
-
-    GUI.Label(new Rect(20, 140, 120, 20), "Health: " + health.ToString("n1"));
-
-    if (GUI.Button(new Rect(20, 160, 120, 20), "Restore Health")) {
-      health = 8f;
-      _spriteRenderer.color = Color.white;
-    }
+  public void OnCraftingEnter() {
+    _attackEnabled = false;
   }
-*/
+
+  public void OnCraftingExit() {
+    _attackEnabled = true;
+  }
+
+  /*  void OnGUI() {
+      GUI.Box(new Rect(10, 10, 240, 200), "Dev Menu");
+      _useRawInput = GUI.Toggle(new Rect(20, 40, 80, 20), _useRawInput, "Raw Input");
+
+      GUI.Label(new Rect(20, 100, 200, 20), "Weapon Durability: " + _activeWeapon.durability.ToString("n2"));
+      if (GUI.Button(new Rect(20, 120, 120, 20), "Restore Durability"))
+        _activeWeapon.durability = 1.0f;
+
+      GUI.Label(new Rect(20, 140, 120, 20), "Health: " + health.ToString("n1"));
+
+      if (GUI.Button(new Rect(20, 160, 120, 20), "Restore Health")) {
+        health = 8f;
+        _spriteRenderer.color = Color.white;
+      }
+    }
+  */
+
+  public void healPlayer(int plusHP) {
+    //Heals the player for plusHP hearts, up to the max
+    health = Mathf.Min(health + plusHP, _healthUI.numberOfHearts);
+    
+  }
 }

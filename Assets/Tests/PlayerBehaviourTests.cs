@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using UnityEngine.TestTools;
 
 namespace Tests {
   public class PlayerBehaviourTests {
@@ -20,6 +19,10 @@ namespace Tests {
       GameObject player = GameObject.FindWithTag("Player");
 
       player.transform.position = new Vector3(setX, setY, 0f);
+
+      GameObject uiObj = GameObject.FindGameObjectWithTag("InGameUI");
+      FirstTimeControls firstTimeControlsScript = uiObj.GetComponent<FirstTimeControls>();
+      firstTimeControlsScript.skipControls = true;
 
       yield return new WaitForSeconds(0.1f);
 

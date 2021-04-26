@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FallenAngel : Enemy {
@@ -9,15 +8,25 @@ public class FallenAngel : Enemy {
   public float shootFrequency;
   public float defensiveDistance;
   public float aggressiveDistance;
-  
+
   private GameObject _playerGO;
   private Player _player;
   private float _nextShootTime = 0f;
 
+  private SpriteRenderer _spriteRenderer;
+
   private float _targetDistance;
+
+  IEnumerator DamageFlash() {
+    Color tint = _spriteRenderer.color;
+    _spriteRenderer.color = Color.grey;
+    yield return new WaitForSeconds(0.1f);
+    _spriteRenderer.color = tint;
+  }
 
   public override void TakeDamage(int damage) {
     health -= damage;
+    StartCoroutine("DamageFlash");
   }
 
   public override void ActAggressive() {
@@ -30,10 +39,10 @@ public class FallenAngel : Enemy {
       GameObject arrowGO = Instantiate(arrowPrefab, transform.position,
           Quaternion.AngleAxis(arrowAngle, Vector3.forward)) as GameObject;
       arrowGO.GetComponent<Arrow>().shooter = gameObject;
-      _nextShootTime += shootFrequency;
+      _nextShootTime = Time.time + 1/shootFrequency;
     }
   }
-  
+
   public override void ActDefensive() {
     _targetDistance = defensiveDistance;
   }
@@ -46,9 +55,10 @@ public class FallenAngel : Enemy {
   void Awake() {
     _playerGO = GameObject.FindGameObjectWithTag("Player");
     _player = _playerGO.GetComponent<Player>();
+    _spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
-  void Update() {
+  void FixedUpdate() {
     Vector3 fallenToPlayer = _playerGO.transform.position - transform.position;
     float fallenToPlayer_dist = fallenToPlayer.magnitude;
     Vector3 moveDir = fallenToPlayer.normalized;
@@ -57,6 +67,11 @@ public class FallenAngel : Enemy {
       moveDir = -fallenToPlayer.normalized;
 
     float speed_multiplier = 0.2f * Mathf.Pow(fallenToPlayer_dist - defensiveDistance, 2f);
-    transform.position += moveDir * (speed * speed_multiplier) * Time.deltaTime;
+
+    Vector3 movement = moveDir * speed*speed_multiplier * Time.fixedDeltaTime;
+    rb.MovePosition(transform.position + movement);
+    //transform.position += moveDir * (speed * speed_multiplier) * Time.deltaTime;
+    Debug.Log(Time.timeScale);
+
   }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyOrchestrator : MonoBehaviour {
@@ -69,7 +68,8 @@ public class EnemyOrchestrator : MonoBehaviour {
 
   public float AdjustDifficulty(float delta) {
     _targetDifficulty += delta;
-    if (_targetDifficulty < 0.0f) _targetDifficulty = 0.0f;
+    if (_targetDifficulty < 0.0f)
+      _targetDifficulty = 0.0f;
     return _targetDifficulty;
   }
 
@@ -150,7 +150,7 @@ public class EnemyOrchestrator : MonoBehaviour {
         Destroy(enemy.gameObject);
         Item newItem = enemy.itemList[Random.Range(0, enemy.itemList.Count)];
         Inventory.instance.AddItem(Instantiate(newItem));
-         
+
         continue;
       }
 

@@ -7,15 +7,28 @@ public class Imp : Enemy {
   public int damage;
   public float attackDistance;
   public float attackSpeedMultiplier;
- 
+
   private GameObject _playerGO;
   private Player _player;
 
-  private Rigidbody2D _rigidbody;
+  private SpriteRenderer _spriteRenderer;
+
   private bool _retreat = false;
+
+  IEnumerator DamageFlash() {
+    Color tint = _spriteRenderer.color;
+    _spriteRenderer.color = Color.grey;
+    yield return new WaitForSeconds(0.1f);
+    _spriteRenderer.color = tint;
+  }
+
+  public void Awake() {
+    _spriteRenderer = GetComponent<SpriteRenderer>();
+  }
 
   public override void TakeDamage(int damage) {
     health -= damage;
+    StartCoroutine("DamageFlash");
   }
 
   public override void ActAggressive() {
@@ -27,14 +40,13 @@ public class Imp : Enemy {
 
     if (_retreat) {
       movement *= -attackSpeedMultiplier;
-    }
-    else if (impToPlayer.magnitude < attackDistance) {
+    } else if (impToPlayer.magnitude < attackDistance) {
       movement *= attackSpeedMultiplier;
     }
 
-    _rigidbody.MovePosition(transform.position + movement);
+    rb.MovePosition(transform.position + movement);
   }
-  
+
   public override void ActDefensive() {
     List<Vector3> impPositions = GetImpPositions();
     Vector3 impCenter = ComputeCenterOfMass(impPositions);
@@ -44,7 +56,7 @@ public class Imp : Enemy {
     Vector3 moveDir = impToTarget.normalized + (repulsion.normalized * 1.1f);
 
     Vector3 movement = moveDir * speed * Time.deltaTime;
-    _rigidbody.MovePosition(transform.position + movement);
+    rb.MovePosition(transform.position + movement);
   }
 
   List<Vector3> GetImpPositions() {
@@ -94,7 +106,6 @@ public class Imp : Enemy {
   void Start() {
     _playerGO = GameObject.FindGameObjectWithTag("Player");
     _player = _playerGO.GetComponent<Player>();
-    _rigidbody = GetComponent<Rigidbody2D>();
   }
 
   void Update() {

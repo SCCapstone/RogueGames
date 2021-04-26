@@ -101,6 +101,7 @@ MonoBehaviour:
   attacking: 0
   health: 2
   spawnPos: {x: 0, y: 0, z: 0}
+  rb: {fileID: 220663947906319071}
   enemySpawnSFX: {fileID: 8300000, guid: 6dc5aecbacef09b448062cdcff6ec680, type: 3}
   enemyDeathSFX: {fileID: 8300000, guid: 7a2b2e34fa943b64a81d820a1cc45759, type: 3}
   itemList:

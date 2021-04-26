@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -31,6 +29,7 @@ public class Sword : Weapon {
     _initPos = transform.localPosition;
     _initRot = transform.localRotation;
     _spriteRenderer = GetComponent<SpriteRenderer>();
+    name = "Sword";
   }
 
   void Update() {
@@ -42,8 +41,7 @@ public class Sword : Weapon {
           Mathf.Rad2Deg * (Mathf.Atan2(_attackDir.y, _attackDir.x) - (Mathf.PI / 2f))
       );
       transform.position = transform.parent.position + (_attackDir * attackReach) * swingCurve.Evaluate(t);
-    }
-    else {
+    } else {
       transform.localPosition = _initPos;
       transform.localRotation = _initRot;
       _attacking = false;
