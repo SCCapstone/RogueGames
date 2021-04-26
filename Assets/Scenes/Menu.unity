@@ -1255,7 +1255,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 497c8a5a1ec5efa418af95d6d279bb0d, type: 2}
   - {fileID: 11400000, guid: ab1d9157d764591469f4b6d0dcbe1adb, type: 2}
   - {fileID: 11400000, guid: 786d1d075fa085943a064cbc4ecc494b, type: 2}
-  - {fileID: 11400000, guid: 58b90f1209362bc49b8b580c8ffeb90c, type: 2}
   recipeDescription: {fileID: 1622163292}
   itemPreview: {fileID: 1588668496}
   mainMenu: {fileID: 1436686237}
