@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Imp : Enemy {
@@ -10,10 +11,24 @@ public class Imp : Enemy {
   private GameObject _playerGO;
   private Player _player;
 
+  private SpriteRenderer _spriteRenderer;
+
   private bool _retreat = false;
+
+  IEnumerator DamageFlash() {
+    Color tint = _spriteRenderer.color;
+    _spriteRenderer.color = Color.grey;
+    yield return new WaitForSeconds(0.1f);
+    _spriteRenderer.color = tint;
+  }
+
+  public void Awake() {
+    _spriteRenderer = GetComponent<SpriteRenderer>();
+  }
 
   public override void TakeDamage(int damage) {
     health -= damage;
+    StartCoroutine("DamageFlash");
   }
 
   public override void ActAggressive() {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class FallenAngel : Enemy {
   public GameObject arrowPrefab;
@@ -12,10 +13,20 @@ public class FallenAngel : Enemy {
   private Player _player;
   private float _nextShootTime = 0f;
 
+  private SpriteRenderer _spriteRenderer;
+
   private float _targetDistance;
+
+  IEnumerator DamageFlash() {
+    Color tint = _spriteRenderer.color;
+    _spriteRenderer.color = Color.grey;
+    yield return new WaitForSeconds(0.1f);
+    _spriteRenderer.color = tint;
+  }
 
   public override void TakeDamage(int damage) {
     health -= damage;
+    StartCoroutine("DamageFlash");
   }
 
   public override void ActAggressive() {
@@ -44,6 +55,7 @@ public class FallenAngel : Enemy {
   void Awake() {
     _playerGO = GameObject.FindGameObjectWithTag("Player");
     _player = _playerGO.GetComponent<Player>();
+    _spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
   void FixedUpdate() {
