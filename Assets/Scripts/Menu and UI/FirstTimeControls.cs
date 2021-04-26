@@ -9,7 +9,9 @@ public class FirstTimeControls : MonoBehaviour {
 
   void Start() {
     Time.timeScale = 0f;
-  }
+    health.SetActive(false);
+    inventory.SetActive(false);
+    }
 
   void Update() {
     if ( !started && (Input.anyKey || skipControls)) {

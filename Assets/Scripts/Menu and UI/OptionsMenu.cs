@@ -9,18 +9,20 @@ public class OptionsMenu : MonoBehaviour {
   public AudioMixer audioMixer;
   Resolution[] resolutions;
   public Dropdown resolutionDropdown;
+  public bool isFullscreen;
   public Slider masterVol;
   public Slider bgmVol;
   public Slider sfxVol;
 
   void Start() {
     resolutions = Screen.resolutions;
+    isFullscreen = Screen.fullScreen;
 
     resolutionDropdown.ClearOptions();
 
     List<string> options = new List<string>();
 
-    int currentResolutionIndex = 0;
+    int currentResolutionIndex = PlayerPrefs.GetInt("Resolution", 0);
     for (int i = 0; i < resolutions.Length; i++) {
       string option = resolutions[i].width + "x" + resolutions[i].height;
       options.Add(option);
@@ -31,18 +33,19 @@ public class OptionsMenu : MonoBehaviour {
       }
     }
     resolutionDropdown.AddOptions(options);
-    resolutionDropdown.value = currentResolutionIndex;
+    resolutionDropdown.value = PlayerPrefs.GetInt("Resolution", currentResolutionIndex);
     resolutionDropdown.RefreshShownValue();
 
-    masterVol.value = PlayerPrefs.GetFloat("MasterVol", 0.75f);
-    bgmVol.value = PlayerPrefs.GetFloat("BGMVol", 0.75f);
-    sfxVol.value = PlayerPrefs.GetFloat("SFXVol", 0.75f);
+    masterVol.value = PlayerPrefs.GetFloat("MasterVol", 1f);
+    bgmVol.value = PlayerPrefs.GetFloat("BGMVol", 1f);
+    sfxVol.value = PlayerPrefs.GetFloat("SFXVol", 1f);
 
   }
 
   public void SetResolution(int resolutionIndex) {
     Resolution resolution = resolutions[resolutionIndex];
     Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    PlayerPrefs.SetInt("Resolution", resolutionIndex);
     Debug.Log("Resolution set to " + resolution.width + " x " + resolution.height + ".");
   }
 
@@ -70,7 +73,7 @@ public class OptionsMenu : MonoBehaviour {
 
   }
 
-  public void SetFullScreen(bool isFullscreen) {
+  public void ToggleFullScreen(bool isFullscreen) {
     Screen.fullScreen = isFullscreen;
     Debug.Log("Fullscreen = " + isFullscreen + ".");
   }
