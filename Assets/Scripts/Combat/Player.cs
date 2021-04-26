@@ -31,6 +31,7 @@ public class Player : MonoBehaviour, IDamageable {
   private bool _primaryActive = true;
   private Weapon _activeWeapon;
   private Weapon _inactiveWeapon;
+  private bool _attackEnabled = true;
 
   // SFX
   public AudioSource playerAudio;
@@ -127,9 +128,6 @@ public class Player : MonoBehaviour, IDamageable {
     Vector3 movement = _moveDir * _speed * Time.fixedDeltaTime;
     rb.MovePosition(transform.position + movement);
     //transform.position += moveDir * speed * Time.deltaTime;
-
-
-
   }
 
   void Update() {
@@ -170,13 +168,10 @@ public class Player : MonoBehaviour, IDamageable {
     _lineRenderer.SetPosition(1, transform.position + 0.3f * playerToMouseDir);
 
     // Attacking
-    if (Input.GetMouseButtonDown(0)) {
+    if (_attackEnabled && Input.GetMouseButtonDown(0) && _activeWeapon.durability > 0) {
       _activeWeapon.Attack(playerToMouseDir);
-      if (_activeWeapon.durability > 0) {
-        playerAudio.PlayOneShot(_activeWeapon.weaponSFX, 0.2f);
-      }
+      playerAudio.PlayOneShot(_activeWeapon.weaponSFX, 0.2f);
     }
-
 
     // Switch weapons
     if (Input.GetMouseButtonDown(1)) {
@@ -184,6 +179,14 @@ public class Player : MonoBehaviour, IDamageable {
     }
 
     _healthUI.health = health;
+  }
+
+  public void OnCraftingEnter() {
+    _attackEnabled = false;
+  }
+
+  public void OnCraftingExit() {
+    _attackEnabled = true;
   }
 
   /*  void OnGUI() {
