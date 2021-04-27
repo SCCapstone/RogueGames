@@ -1,5 +1,5 @@
 ---
-youtubeId: CBQGTAU8eYM
+youtubeId: uWXSnP0nfYs
 ---
 
 Welcome to Project Brimstone 
@@ -14,7 +14,7 @@ inferno. A full description can be found [here](https://github.com/SCCapstone/Ro
 If you want to play the game check out our github repo [here](https://github.com/SCCapstone/RogueGames) and then 
 follow the install instructions listed below or in the readme on the github.
 
-### Temporary Video
+### Demo Video
 
 {% include youtubePlayer.html id=page.youtubeId %}
 
